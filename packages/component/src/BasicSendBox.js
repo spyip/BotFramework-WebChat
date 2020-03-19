@@ -22,8 +22,10 @@ const {
 } = Constants;
 
 const ROOT_CSS = css({
-  '& > .main': {
-    display: 'flex'
+  '&.webchat__basicSendBox': {
+    '& > .webchat__basicSendBox__main': {
+      display: 'flex'
+    }
   }
 });
 
@@ -56,9 +58,13 @@ const BasicSendBox = ({ className }) => {
   const supportSpeechRecognition = !!SpeechRecognition;
 
   return (
-    <div className={classNames(sendBoxStyleSet + '', ROOT_CSS + '', className + '')} dir={direction} role="form">
+    <div
+      className={classNames('webchat__basicSendBox', sendBoxStyleSet + '', ROOT_CSS + '', className + '')}
+      dir={direction}
+      role="form"
+    >
       <SuggestedActions />
-      <div className="main">
+      <div className="webchat__basicSendBox__main">
         {!hideUploadButton && <UploadButton />}
         {speechInterimsVisible ? (
           <DictationInterims className={DICTATION_INTERIMS_CSS + ''} />
