@@ -4,12 +4,12 @@ import React from 'react';
 
 import useStyleSet from '../hooks/useStyleSet';
 
-const IconButton = ({ alt, children, className, disabled, onClick }) => {
+const SendBoxButton = ({ alt, children, className, disabled, onClick }) => {
   const [{ sendBoxButton: sendBoxButtonStyleSet }] = useStyleSet();
 
   return (
     <button
-      className={classNames(sendBoxButtonStyleSet + '', className + '')}
+      className={classNames(sendBoxButtonStyleSet + '', 'webchat__send-box-button', className + '')}
       disabled={disabled}
       onClick={onClick}
       title={alt}
@@ -20,7 +20,7 @@ const IconButton = ({ alt, children, className, disabled, onClick }) => {
   );
 };
 
-IconButton.defaultProps = {
+SendBoxButton.defaultProps = {
   alt: '',
   children: undefined,
   className: '',
@@ -28,7 +28,7 @@ IconButton.defaultProps = {
   onClick: undefined
 };
 
-IconButton.propTypes = {
+SendBoxButton.propTypes = {
   alt: PropTypes.string,
   children: PropTypes.any,
   className: PropTypes.string,
@@ -36,4 +36,4 @@ IconButton.propTypes = {
   onClick: PropTypes.func
 };
 
-export default IconButton;
+export default SendBoxButton;

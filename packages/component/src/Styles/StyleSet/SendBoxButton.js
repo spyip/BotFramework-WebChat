@@ -7,31 +7,31 @@ export default function createSendBoxButtonStyle({
   subtle
 }) {
   return {
-    backgroundColor: 'Transparent',
-    border: 0,
-    height: '100%',
-    outline: 0,
-    padding: 0,
+    '&.webchat__send-box-button': {
+      appearance: 'none',
+      backgroundColor: 'Transparent',
+      border: 0,
+      fill: sendBoxButtonColor || subtle,
+      height: sendBoxHeight,
+      outline: 0,
+      padding: 0,
 
-    // We use the sendBoxHeight, so the button looks square
-    width: sendBoxHeight,
+      // We use the sendBoxHeight, so the button looks square
+      width: sendBoxHeight,
 
-    '&:not(:disabled)': {
-      '&:focus svg': {
-        fill: sendBoxButtonColorOnFocus
+      '&:disabled': {
+        fill: sendBoxButtonColorOnDisabled
       },
 
-      '&:hover svg': {
-        fill: sendBoxButtonColorOnHover
+      '&:not(:disabled)': {
+        '&:hover': {
+          fill: sendBoxButtonColorOnHover
+        },
+
+        '&:focus': {
+          fill: sendBoxButtonColorOnFocus
+        }
       }
-    },
-
-    '& svg': {
-      fill: sendBoxButtonColor || subtle
-    },
-
-    '&:disabled svg': {
-      fill: sendBoxButtonColorOnDisabled
     }
   };
 }

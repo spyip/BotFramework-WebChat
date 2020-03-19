@@ -9,8 +9,8 @@ import PropTypes from 'prop-types';
 import React, { useCallback, useState } from 'react';
 
 import connectToWebChat from '../connectToWebChat';
-import IconButton from './IconButton';
 import MicrophoneIcon from './Assets/MicrophoneIcon';
+import SendBoxButton from './SendBoxButton';
 import useDictateAbortable from '../hooks/useDictateAbortable';
 import useDictateInterims from '../hooks/useDictateInterims';
 import useDictateState from '../hooks/useDictateState';
@@ -158,11 +158,22 @@ const MicrophoneButton = ({ className }) => {
   return (
     <div
       aria-controls="webchatSendBoxMicrophoneButton"
-      className={classNames(microphoneButtonStyleSet + '', ROOT_CSS + '', className + '', { dictating })}
+      className={classNames(
+        microphoneButtonStyleSet + '',
+        ROOT_CSS + '',
+        className + '',
+        'webchat__microphone-button',
+        dictating && 'webchat__microphone-button--dictating'
+      )}
     >
-      <IconButton alt={localize('TEXT_INPUT_SPEAK_BUTTON_ALT')} disabled={disabled} onClick={click}>
+      <SendBoxButton
+        alt={localize('TEXT_INPUT_SPEAK_BUTTON_ALT')}
+        className="webchat__microphone-button__button"
+        disabled={disabled}
+        onClick={click}
+      >
         <MicrophoneIcon />
-      </IconButton>
+      </SendBoxButton>
       <div aria-live="polite" className="sr-only" id="webchatSendBoxMicrophoneButton" role="status">
         {localize(dictating ? 'SPEECH_INPUT_MICROPHONE_BUTTON_OPEN_ALT' : 'SPEECH_INPUT_MICROPHONE_BUTTON_CLOSE_ALT')}
       </div>

@@ -7,8 +7,8 @@ export default function createSendBoxStyle({
   sendBoxBorderTop
 }) {
   return {
-    '&.webchat__basicSendBox': {
-      '& .webchat__basicSendBox__main': {
+    '&.webchat__basic-send-box': {
+      '& .webchat__basic-send-box__main': {
         alignItems: 'stretch',
         backgroundColor: sendBoxBackground,
         borderBottom: sendBoxBorderBottom,

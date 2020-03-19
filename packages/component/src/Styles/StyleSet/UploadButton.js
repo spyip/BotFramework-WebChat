@@ -1,24 +1,13 @@
-export default function createUploadButtonStyle({
-  sendBoxButtonColor,
-  sendBoxButtonColorOnFocus,
-  sendBoxButtonColorOnHover,
-  sendBoxHeight,
-  subtle
-}) {
+export default function createUploadButtonStyle({ sendBoxButtonColorOnFocus, sendBoxButtonColorOnHover }) {
   return {
-    // We use the sendBoxHeight, so the button looks square
-    width: sendBoxHeight,
+    '&.webchat__upload-button': {
+      '& .webchat__upload-button__file-input:hover + .webchat__upload-button__button': {
+        fill: sendBoxButtonColorOnHover
+      },
 
-    '& > .icon > svg': {
-      fill: sendBoxButtonColor || subtle
-    },
-
-    '& > input:hover + .icon > svg': {
-      fill: sendBoxButtonColorOnHover
-    },
-
-    '& > input:focus + .icon > svg': {
-      fill: sendBoxButtonColorOnFocus
+      '& .webchat__upload-button__file-input:focus + .webchat__upload-button__button': {
+        fill: sendBoxButtonColorOnFocus
+      }
     }
   };
 }

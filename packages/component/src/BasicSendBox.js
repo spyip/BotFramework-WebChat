@@ -22,8 +22,8 @@ const {
 } = Constants;
 
 const ROOT_CSS = css({
-  '&.webchat__basicSendBox': {
-    '& > .webchat__basicSendBox__main': {
+  '&.webchat__basic-send-box': {
+    '& > .webchat__basic-send-box__main': {
       display: 'flex'
     }
   }
@@ -64,7 +64,7 @@ const BasicSendBox = ({ className }) => {
       role="form"
     >
       <SuggestedActions />
-      <div className="webchat__basicSendBox__main">
+      <div className="webchat__basic-send-box__main">
         {!hideUploadButton && <UploadButton />}
         {speechInterimsVisible ? (
           <DictationInterims className={DICTATION_INTERIMS_CSS + ''} />

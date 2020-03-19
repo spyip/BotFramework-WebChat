@@ -5,7 +5,7 @@ import React, { useCallback, useRef } from 'react';
 import AttachmentIcon from './Assets/AttachmentIcon';
 import connectToWebChat from '../connectToWebChat';
 import downscaleImageToDataURL from '../Utils/downscaleImageToDataURL';
-import IconButton from './IconButton';
+import SendBoxButton from './SendBoxButton';
 import useDisabled from '../hooks/useDisabled';
 import useLocalizer from '../hooks/useLocalizer';
 import useSendFiles from '../hooks/useSendFiles';
@@ -108,9 +108,10 @@ const UploadButton = () => {
   );
 
   return (
-    <div className={classNames(ROOT_CSS + '', uploadButtonStyleSet + '')}>
+    <div className={classNames(ROOT_CSS + '', uploadButtonStyleSet + '', 'webchat__upload-button')}>
       <input
         aria-hidden="true"
+        className="webchat__upload-button__file-input"
         disabled={disabled}
         multiple={true}
         onChange={handleFileChange}
@@ -119,9 +120,9 @@ const UploadButton = () => {
         tabIndex={-1}
         type="file"
       />
-      <IconButton alt={uploadFileString} aria-label={uploadFileString} disabled={disabled} onClick={handleClick}>
+      <SendBoxButton alt={uploadFileString} aria-label={uploadFileString} className="webchat__upload-button__button" disabled={disabled} onClick={handleClick}>
         <AttachmentIcon />
-      </IconButton>
+      </SendBoxButton>
     </div>
   );
 };
