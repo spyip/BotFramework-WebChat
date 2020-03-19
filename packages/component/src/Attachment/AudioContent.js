@@ -1,3 +1,4 @@
+import classNames from 'classnames';
 import PropTypes from 'prop-types';
 import React from 'react';
 
@@ -7,15 +8,17 @@ const AudioContent = ({ alt, autoPlay, loop, poster, src }) => {
   const [{ audioContent: audioContentStyleSet }] = useStyleSet();
 
   return (
-    <audio
-      aria-label={alt}
-      autoPlay={autoPlay}
-      className={audioContentStyleSet}
-      controls={true}
-      loop={loop}
-      poster={poster}
-      src={src}
-    />
+    <div className={classNames('webchat__audioContent', audioContentStyleSet + '')}>
+      <audio
+        aria-label={alt}
+        autoPlay={autoPlay}
+        className={audioContentStyleSet}
+        controls={true}
+        loop={loop}
+        poster={poster}
+        src={src}
+      />
+    </div>
   );
 };
 
