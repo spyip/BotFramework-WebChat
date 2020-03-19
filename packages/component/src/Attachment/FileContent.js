@@ -13,12 +13,12 @@ import useStyleSet from '../hooks/useStyleSet';
 const ROOT_CSS = css({
   display: 'flex',
 
-  '& .webchat__fileContent__buttonLink': {
+  '& .webchat__file-content__button-link': {
     display: 'flex',
     flex: 1
   },
 
-  '& .webchat__fileContent__badge': {
+  '& .webchat__file-content__badge': {
     display: 'flex',
     flex: 1,
     flexDirection: 'column'
@@ -33,15 +33,15 @@ const FileContentBadge = ({ downloadIcon, fileName, size }) => {
 
   return (
     <React.Fragment>
-      <div aria-hidden={true} className="webchat__fileContent__badge">
-        <div className="webchat__fileContent__fileName">{fileName}</div>
-        {!!localizedSize && <div className="webchat__fileContent__size">{localizedSize}</div>}
+      <div aria-hidden={true} className="webchat__file-content__badge">
+        <div className="webchat__file-content__file-name">{fileName}</div>
+        {!!localizedSize && <div className="webchat__file-content__size">{localizedSize}</div>}
       </div>
       {downloadIcon && (
         <DownloadIcon
           className={classNames(
-            'webchat__fileContent__downloadIcon',
-            direction === 'rtl' && 'webchat__fileContent__downloadIcon--rtl'
+            'webchat__file-content__download-icon',
+            direction === 'rtl' && 'webchat__file-content__download-icon--rtl'
           )}
           size={1.5}
         />
@@ -83,13 +83,13 @@ const FileContent = ({ className, href, fileName, size }) => {
   return (
     <div
       aria-hidden={true}
-      className={classNames('webchat__fileContent', ROOT_CSS + '', fileContentStyleSet + '', (className || '') + '')}
+      className={classNames(fileContentStyleSet + '', ROOT_CSS + '', 'webchat__file-content', (className || '') + '')}
     >
       <ScreenReaderText text={alt} />
       {href ? (
         <a
           aria-hidden={true}
-          className="webchat__fileContent__buttonLink"
+          className="webchat__file-content__button-link"
           download={fileName}
           href={href}
           rel="noopener noreferrer"
