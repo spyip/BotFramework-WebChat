@@ -1,3 +1,4 @@
+import classNames from 'classnames';
 import PropTypes from 'prop-types';
 import React from 'react';
 
@@ -8,7 +9,7 @@ const AudioAttachment = ({ attachment }) => {
   const [{ audioAttachment: audioAttachmentStyleSet }] = useStyleSet();
 
   return (
-    <div className={audioAttachmentStyleSet}>
+    <div className={classNames('webchat__audioAttachments', audioAttachmentStyleSet + '')}>
       <AudioContent alt={attachment.name} src={attachment.contentUrl} />
     </div>
   );
