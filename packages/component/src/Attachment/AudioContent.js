@@ -8,7 +8,7 @@ const AudioContent = ({ alt, autoPlay, loop, poster, src }) => {
   const [{ audioContent: audioContentStyleSet }] = useStyleSet();
 
   return (
-    <div className={classNames('webchat__audioContent', audioContentStyleSet + '')}>
+    <div className={classNames(audioContentStyleSet + '', 'webchat__audioContent')}>
       <audio
         aria-label={alt}
         autoPlay={autoPlay}
