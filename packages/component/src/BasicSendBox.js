@@ -23,7 +23,7 @@ const {
 
 const ROOT_CSS = css({
   '&.webchat__basic-send-box': {
-    '& > .webchat__basic-send-box__main': {
+    '& .webchat__basic-send-box__main': {
       display: 'flex'
     }
   }
