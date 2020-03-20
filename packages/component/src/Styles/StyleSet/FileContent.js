@@ -1,6 +1,6 @@
 export default function createFileContentStyle({ accent, bubbleTextColor, paddingRegular, primaryFont }) {
   return {
-    '&.webchat__file-content':{
+    '&.webchat__file-content': {
       color: bubbleTextColor,
       display: 'flex',
       fontFamily: primaryFont,
