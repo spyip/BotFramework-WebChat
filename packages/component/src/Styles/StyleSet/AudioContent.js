@@ -1,6 +1,6 @@
 export default function AudioContent() {
   return {
-    '&.webchat__audioContent': {
+    '&.webchat__audio-content': {
       width: '100%'
     }
   };

@@ -9,7 +9,7 @@ const AudioAttachment = ({ attachment }) => {
   const [{ audioAttachment: audioAttachmentStyleSet }] = useStyleSet();
 
   return (
-    <div className={classNames(audioAttachmentStyleSet + '', 'webchat__audioAttachments')}>
+    <div className={classNames(audioAttachmentStyleSet + '', 'webchat__audio-attachments')}>
       <AudioContent alt={attachment.name} src={attachment.contentUrl} />
     </div>
   );
