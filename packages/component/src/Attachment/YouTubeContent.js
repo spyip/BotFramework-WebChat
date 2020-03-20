@@ -1,3 +1,4 @@
+import classNames from 'classnames';
 import PropTypes from 'prop-types';
 import React from 'react';
 
@@ -13,13 +14,15 @@ const YouTubeContent = ({ alt, autoPlay, embedID, loop }) => {
   }).toString();
 
   return (
-    // TODO: We should encodeURI the URL
-    <iframe
-      allowFullScreen={true}
-      aria-label={alt}
-      className={youTubeContentStyleSet}
-      src={`https://youtube.com/embed/${embedID}?${search}`}
-    />
+    <div className={classNames(youTubeContentStyleSet + '', 'webchat__youTube-content')}>
+      // TODO: We should encodeURI the URL
+      <iframe
+        allowFullScreen={true}
+        aria-label={alt}
+        className={youTubeContentStyleSet}
+        src={`https://youtube.com/embed/${embedID}?${search}`}
+      />
+    </div>
   );
 };
 
