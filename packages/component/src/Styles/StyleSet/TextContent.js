@@ -2,27 +2,29 @@
 
 export default function createTextContentStyle({ bubbleMaxWidth, bubbleMinHeight, primaryFont, paddingRegular }) {
   return {
-    fontFamily: primaryFont,
-    margin: 0,
-    minHeight: bubbleMinHeight - paddingRegular * 2,
-    padding: paddingRegular,
+    '&.webchat__text-content': {
+      fontFamily: primaryFont,
+      margin: 0,
+      minHeight: bubbleMinHeight - paddingRegular * 2,
+      padding: paddingRegular,
 
-    '& > :first-child': {
-      marginTop: 0
-    },
-
-    '& > :last-child': {
-      marginBottom: 0
-    },
-
-    '&.markdown': {
-      '& img': {
-        maxWidth: bubbleMaxWidth,
-        width: '100%'
+      '& > :first-child': {
+        marginTop: 0
       },
 
-      '& pre': {
-        overflow: 'hidden'
+      '& > :last-child': {
+        marginBottom: 0
+      },
+
+      '& .webchat__text-content--markdown': {
+        '& img': {
+          maxWidth: bubbleMaxWidth,
+          width: '100%'
+        },
+
+        '& pre': {
+          overflow: 'hidden'
+        }
       }
     }
   };

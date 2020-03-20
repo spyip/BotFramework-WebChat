@@ -22,7 +22,7 @@ const TextContent = ({ contentType, text }) => {
       <ScreenReaderText text={strippedText} />
       <div
         aria-hidden={true}
-        className={classNames('markdown', textContentStyleSet + '')}
+        className={classNames(textContentStyleSet + '', 'webchat__text-content', 'webchat__text-content--markdown')}
         dangerouslySetInnerHTML={{ __html: renderMarkdownAsHTML(text || '') }}
       />
     </React.Fragment>
@@ -30,7 +30,7 @@ const TextContent = ({ contentType, text }) => {
     (text || '').split('\n').map((line, index) => (
       <React.Fragment key={index}>
         <ScreenReaderText text={remarkStripMarkdown(line.trim()).contents} />
-        <p aria-hidden={true} className={classNames('plain', textContentStyleSet + '')}>
+        <p aria-hidden={true} className={classNames(textContentStyleSet + '', 'webchat__text-content', 'webchat__text-content--plain')}>
           {line.trim()}
         </p>
       </React.Fragment>
