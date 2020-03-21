@@ -15,7 +15,7 @@ const VideoAttachment = ({ attachment }) => {
   const [{ videoAttachment: videoAttachmentStyleSet }] = useStyleSet();
 
   return (
-    <div className={classNames(ROOT_CSS + '', videoAttachmentStyleSet + '')}>
+    <div className={classNames(videoAttachmentStyleSet + '', ROOT_CSS + '')}>
       <VideoContent alt={attachment.name} src={attachment.contentUrl} />
     </div>
   );
