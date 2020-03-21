@@ -10,7 +10,7 @@ const HTMLVideoContent = ({ alt, autoPlay, loop, poster, src }) => {
     <video
       aria-label={alt}
       autoPlay={autoPlay}
-      className={videoContentStyleSet}
+      className={classNames(videoContentStyleSet + '', 'webchat__html-audio-content')}
       controls={true}
       loop={loop}
       poster={poster}

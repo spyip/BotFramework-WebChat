@@ -1,6 +1,8 @@
 export default function createVideoContentStyle({ videoHeight }) {
   return {
-    height: videoHeight,
-    width: '100%'
+    '&.webchat__html-video-content': {
+      height: videoHeight,
+      width: '100%'
+    }
   };
 }
