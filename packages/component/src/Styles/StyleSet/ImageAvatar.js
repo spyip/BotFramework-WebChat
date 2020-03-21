@@ -1,7 +1,9 @@
 export default function createImageAvatarStyle({ avatarSize }) {
   return {
-    height: avatarSize,
-    overflow: 'hidden',
-    width: avatarSize
+    '&.webchat__image-avatar': {
+      height: avatarSize,
+      overflow: 'hidden',
+      width: avatarSize
+    }
   };
 }

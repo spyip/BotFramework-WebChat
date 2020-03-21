@@ -9,7 +9,7 @@ import useAvatarForUser from '../hooks/useAvatarForUser';
 import useStyleSet from '../hooks/useStyleSet';
 
 const ROOT_CSS = css({
-  '& .webchat__imageAvatar__image': {
+  '& .webchat__image-avatar__image': {
     width: '100%'
   }
 });
@@ -20,7 +20,7 @@ const ImageAvatar = ({ fromUser }) => {
   const [{ imageAvatar: imageAvatarStyleSet }] = useStyleSet();
 
   return (
-    <div className={classNames(ROOT_CSS + '', 'webchat__imageAvatar', imageAvatarStyleSet + '')}>
+    <div className={classNames(imageAvatarStyleSet + '', ROOT_CSS + '', 'webchat__image-avatar')}>
       <CroppedImage
         alt=""
         className="webchat__imageAvatar__image"
