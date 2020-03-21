@@ -1,3 +1,4 @@
+import classNames from 'classnames';
 import PropTypes from 'prop-types';
 import React from 'react';
 
@@ -19,7 +20,7 @@ const VimeoContent = ({ alt, autoPlay, embedID, loop }) => {
     <iframe
       allowFullScreen={true}
       aria-label={alt}
-      className={vimeoContentStyleSet}
+      className={classNames(vimeoContentStyleSet + '', 'webchat__vimeo-content')}
       src={`https://player.vimeo.com/video/${encodeURI(embedID)}?${search}`}
     />
   );

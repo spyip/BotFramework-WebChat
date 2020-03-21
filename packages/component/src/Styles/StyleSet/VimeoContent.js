@@ -1,7 +1,9 @@
 export default function createVimeoContentStyle({ videoHeight }) {
   return {
-    border: 0,
-    height: videoHeight,
-    width: '100%'
+    '&.webchat__vimeo-content': {
+      border: 0,
+      height: videoHeight,
+      width: '100%'
+    }
   };
 }
