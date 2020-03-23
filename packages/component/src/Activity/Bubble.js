@@ -10,11 +10,13 @@ import useStyleOptions from '../hooks/useStyleOptions';
 import useStyleSet from '../hooks/useStyleSet';
 
 const ROOT_CSS = css({
-  position: 'relative',
+  '&.webchat__bubble': {
+    position: 'relative',
 
-  '& > .webchat__bubble__content': {
-    // This is for hiding content outside of the bubble, for example, content outside of border radius
-    overflow: 'hidden'
+    '& .webchat__bubble__content': {
+      // This is for hiding content outside of the bubble, for example, content outside of border radius
+      overflow: 'hidden'
+    }
   }
 });
 
@@ -84,19 +86,25 @@ const Bubble = ({ 'aria-hidden': ariaHidden, children, className, fromUser, nub 
       };
   const [direction] = useDirection();
 
+  const hasNub = !!(nub && nubSize);
+
   return (
     <div
       aria-hidden={ariaHidden}
       className={classNames(
         ROOT_CSS + '',
-        direction === 'rtl' ? 'webchat__bubble--rtl' : '',
         bubbleStyleSet + '',
-        { 'from-user': fromUser, webchat__bubble_has_nub: nub },
-        className + '' || ''
+        'webchat__bubble',
+        {
+          'webchat__bubble--from-user': fromUser,
+          'webchat__bubble--has-nub': hasNub,
+          'webchat__bubble--rtl': direction === 'rtl'
+        },
+        (className || '') + ''
       )}
     >
       <div className="webchat__bubble__content">{children}</div>
-      {nub && acuteNubSVG(nubSize, borderWidth, side, !isPositive(nubOffset))}
+      {hasNub && acuteNubSVG(nubSize, borderWidth, side, !isPositive(nubOffset))}
     </div>
   );
 };
