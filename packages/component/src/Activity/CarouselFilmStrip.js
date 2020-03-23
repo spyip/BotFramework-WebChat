@@ -21,47 +21,45 @@ import useStyleOptions from '../hooks/useStyleOptions';
 import useStyleSet from '../hooks/useStyleSet';
 
 const ROOT_CSS = css({
-  display: 'flex',
-  MsOverflowStyle: 'none',
-  overflowX: 'scroll',
-  overflowY: 'hidden',
-  touchAction: 'manipulation',
-  WebkitOverflowScrolling: 'touch',
+  '&.webchat__carousel-filmstrip': {
+    display: 'flex',
+    MsOverflowStyle: 'none',
+    overflowX: 'scroll',
+    overflowY: 'hidden',
+    touchAction: 'manipulation',
+    WebkitOverflowScrolling: 'touch',
 
-  '&::-webkit-scrollbar': {
-    display: 'none'
-  },
-
-  '& > .webchat__carouselFilmStrip__avatar': {
-    flexShrink: 0
-  },
-
-  '& > .content': {
-    flex: 1,
-
-    '& > .message': {
-      display: 'flex',
-
-      '& > .bubble': {
-        flexGrow: 1,
-        overflow: 'hidden'
-      },
-
-      '& > .filler': {
-        flexGrow: 10000,
-        flexShrink: 1
-      }
+    '&::-webkit-scrollbar': {
+      display: 'none'
     },
 
-    '& > ul': {
+    '& .webchat__carousel-filmstrip__avatar': {
+      flexShrink: 0
+    },
+
+    '& .webchat__carousel-filmstrip__bubble': {
+      flexGrow: 1,
+      overflow: 'hidden'
+    },
+
+    '& .webchat__carousel-filmstrip__content, & .webchat__carousel-filmstrip__list-item': {
+      flex: 1
+    },
+
+    '& .webchat__carousel-filmstrip__filler': {
+      flexGrow: 10000,
+      flexShrink: 1
+    },
+
+    '& .webchat__carousel-filmstrip__list': {
       display: 'flex',
       listStyleType: 'none',
       margin: 0,
-      padding: 0,
+      padding: 0
+    },
 
-      '& > li': {
-        flex: 1
-      }
+    '& .webchat__carousel-filmstrip__message': {
+      display: 'flex'
     }
   }
 });
@@ -120,21 +118,23 @@ const WebChatCarouselFilmStrip = ({
       className={classNames(
         ROOT_CSS + '',
         carouselFilmStripStyleSet + '',
-        className + '',
+        'webchat__carousel-filmstrip',
         {
-          webchat__carousel_indented_content: initials && !indented,
-          webchat__carousel_extra_right_indent: !userInitials && bubbleFromUserNubSize
+          'webchat__carousel-filmstrip--indented-content': initials && !indented,
+          'webchat__carousel-filmstrip--item-indented': indented,
+          'webchat__carousel-filmstrip--extra-right-indent': !userInitials && bubbleFromUserNubSize,
+          'webchat__carousel-filmstrip--rtl': direction === 'rtl'
         },
-        direction === 'rtl' ? 'webchat__carousel--rtl' : ''
+        className + '',
       )}
       ref={scrollableRef}
     >
-      {renderAvatar && <div className="webchat__carouselFilmStrip__avatar">{renderAvatar()}</div>}
-      <div className="content">
+      {renderAvatar && <div className="webchat__carousel-filmstrip__avatar">{renderAvatar()}</div>}
+      <div className="webchat__carousel-filmstrip__content">
         {!!activityDisplayText && (
-          <div className="message">
+          <div className="webchat__carousel-filmstrip__message">
             <ScreenReaderText text={roleLabel + ' ' + strippedActivityDisplayText} />
-            <Bubble aria-hidden={true} className="bubble" fromUser={fromUser} nub={true}>
+            <Bubble aria-hidden={true} className="webchat__carousel-filmstrip__bubble" fromUser={fromUser} nub={true}>
               {children({
                 activity,
                 attachment: {
@@ -143,13 +143,20 @@ const WebChatCarouselFilmStrip = ({
                 }
               })}
             </Bubble>
-            <div className="filler" />
+            <div className="webchat__carousel-filmstrip__filler" />
           </div>
         )}
-        <ul className={classNames({ webchat__carousel__item_indented: indented })} ref={itemContainerRef}>
+        <ul
+          className="webchat__carousel-filmstrip__list"
+          ref={itemContainerRef}
+        >
           {attachments.map((attachment, index) => (
             // Because of differences in browser implementations, aria-label=" " is used to make the screen reader not repeat the same text multiple times in Chrome v75 and Edge 44
-            <li aria-label=" " key={index}>
+            <li
+              aria-label=" "
+              className="webchat__carousel-filmstrip__list-item"
+              key={index}
+            >
               <ScreenReaderText text={roleLabel} />
               <Bubble fromUser={fromUser} key={index} nub={false}>
                 {children({ attachment })}
@@ -157,7 +164,9 @@ const WebChatCarouselFilmStrip = ({
             </li>
           ))}
         </ul>
-        <div className={classNames({ webchat__carousel__item_indented: indented })}>{renderActivityStatus()}</div>
+        <div className="webchat__carousel-filmstrip__activity-status">
+          {renderActivityStatus()}
+        </div>
       </div>
     </div>
   );
