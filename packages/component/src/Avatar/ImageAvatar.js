@@ -23,7 +23,7 @@ const ImageAvatar = ({ fromUser }) => {
     <div className={classNames(imageAvatarStyleSet + '', ROOT_CSS + '', 'webchat__image-avatar')}>
       <CroppedImage
         alt=""
-        className="webchat__imageAvatar__image"
+        className="webchat__image-avatar__image"
         height="100%"
         src={fromUser ? avatarImageForUser : avatarImageForBot}
         width="100%"
