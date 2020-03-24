@@ -39,22 +39,37 @@ const DictationInterims = ({ className }) => {
   const localize = useLocalizer();
 
   return dictateState === STARTING || dictateState === STOPPING ? (
-    <p className={classNames(dictationInterimsStyleSet + '', ROOT_CSS + '', className + '', 'status')}>
+    <p className={classNames(
+      dictationInterimsStyleSet + '',
+      ROOT_CSS + '',
+      'webchat__dictation-interims',
+      className + ''
+    )}>
       {dictateState === STARTING && localize('SPEECH_INPUT_STARTING')}
     </p>
   ) : (
     dictateState === DICTATING &&
       (dictateInterims.length ? (
-        <p className={classNames(dictationInterimsStyleSet + '', ROOT_CSS + '', className + '', 'dictating')}>
+        <p className={classNames(
+          dictationInterimsStyleSet + '',
+          ROOT_CSS + '',
+          'webchat__dictation-interims',
+          'webchat__dictation-interims--dictating',
+          className + ''
+        )}>
           {dictateInterims.map((interim, index) => (
-            <span key={index}>
+            <span className="webchat__dictation-interims__interim" key={index}>
               {interim}
               &nbsp;
             </span>
           ))}
         </p>
       ) : (
-        <p className={classNames(dictationInterimsStyleSet + '', ROOT_CSS + '', className + '', 'status')}>
+        <p className={classNames(
+          dictationInterimsStyleSet + '',
+          ROOT_CSS + '',
+          className + ''
+        )}>
           {localize('SPEECH_INPUT_LISTENING')}
         </p>
       ))
