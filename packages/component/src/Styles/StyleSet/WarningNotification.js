@@ -8,16 +8,18 @@ export default function createWarningNotificationStyle({
   notificationText
 }) {
   return {
-    alignItems: 'center',
-    color: notificationText,
-    // TODO: [P2] We should not set "display" in styleSet, this will allow the user to break the layout for no good reasons.
-    display: 'flex',
-    fontFamily: primaryFont,
-    fontSize: connectivityTextSize,
-    marginBottom: connectivityMarginTopBottom,
-    marginLeft: connectivityMarginLeftRight,
-    marginRight: connectivityMarginLeftRight,
-    marginTop: connectivityMarginTopBottom,
+    '&.webchat__warning-notification': {
+      alignItems: 'center',
+      color: notificationText,
+      // TODO: [P2] We should not set "display" in styleSet, this will allow the user to break the layout for no good reasons.
+      display: 'flex',
+      fontFamily: primaryFont,
+      fontSize: connectivityTextSize,
+      marginBottom: connectivityMarginTopBottom,
+      marginLeft: connectivityMarginLeftRight,
+      marginRight: connectivityMarginLeftRight,
+      marginTop: connectivityMarginTopBottom
+    },
 
     '& > svg': {
       fill: slowConnectivity,

@@ -15,18 +15,22 @@ export default function createSpinnerAnimationStyle({
       'botframework-webchat: "spinnerAnimationPaddingRight" is deprecated and will be removed on or after 2021-02-01. Please use "spinnerAnimationPadding" instead.'
     );
   }
-  return {
-    backgroundImage,
-    backgroundRepeat: 'no-repeat',
-    backgroundSize: 'contain',
-    height: spinnerAnimationHeight,
-    width: spinnerAnimationWidth,
 
-    ':not(.webchat__spinner--rtl)': {
-      marginRight: spinnerAnimationPadding
-    },
-    '.webchat__spinner--rtl': {
-      marginLeft: spinnerAnimationPadding
+  return {
+    '&.webchat__spinner-animation': {
+      backgroundImage,
+      backgroundRepeat: 'no-repeat',
+      backgroundSize: 'contain',
+      height: spinnerAnimationHeight,
+      width: spinnerAnimationWidth,
+
+      ':not(.webchat__spinner-animation--rtl)': {
+        marginRight: spinnerAnimationPadding
+      },
+
+      '.webchat__spinner-animation--rtl': {
+        marginLeft: spinnerAnimationPadding
+      }
     }
   };
 }

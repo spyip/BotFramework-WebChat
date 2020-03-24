@@ -36,7 +36,10 @@ const ConnectivityStatusConnecting = ({ reconnect }) => {
       <ScreenReaderText text={localize('CONNECTIVITY_STATUS_ALT', slowConnectionText)} />
       <div
         aria-hidden={true}
-        className={classNames('webchat__connectivityStatus', warningNotificationStyleSet + '')}
+        className={classNames(
+          warningNotificationStyleSet + '',
+          'webchat__warning-notification'
+        )}
         dir={direction}
       >
         <WarningNotificationIcon />
@@ -50,7 +53,10 @@ const ConnectivityStatusConnecting = ({ reconnect }) => {
       />
       <div
         aria-hidden={true}
-        className={classNames('webchat__connectivityStatus', connectivityNotificationStyleSet + '')}
+        className={classNames(
+          connectivityNotificationStyleSet + '',
+          'webchat__connectivity-notification'
+        )}
         dir={direction}
       >
         <SpinnerAnimation />

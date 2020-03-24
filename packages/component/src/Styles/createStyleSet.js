@@ -11,6 +11,7 @@ import createConnectivityNotification from './StyleSet/ConnectivityNotification'
 import createDictationInterimsStyle from './StyleSet/DictationInterims';
 import createErrorBoxStyle from './StyleSet/ErrorBox';
 import createErrorNotificationStyle from './StyleSet/ErrorNotification';
+import createErrorNotificationIconStyle from './StyleSet/ErrorNotificationIcon';
 import createFileContentStyle from './StyleSet/FileContent';
 import createImageAvatarStyle from './StyleSet/ImageAvatar';
 import createInitialsAvatarStyle from './StyleSet/InitialsAvatar';
@@ -38,6 +39,7 @@ import createVideoAttachmentStyle from './StyleSet/VideoAttachment';
 import createVideoContentStyle from './StyleSet/VideoContent';
 import createVimeoContentStyle from './StyleSet/VimeoContent';
 import createWarningNotificationStyle from './StyleSet/WarningNotification';
+import createWarningNotificationIconStyle from './StyleSet/WarningNotificationIcon';
 import createYouTubeContentStyle from './StyleSet/YouTubeContent';
 
 import defaultStyleOptions from './defaultStyleOptions';
@@ -184,6 +186,7 @@ export default function createStyleSet(options) {
     dictationInterims: createDictationInterimsStyle(options),
     errorBox: createErrorBoxStyle(options),
     errorNotification: createErrorNotificationStyle(options),
+    errorNotificationIcon: createErrorNotificationIconStyle(options),
     fileContent: createFileContentStyle(options),
     imageAvatar: createImageAvatarStyle(options),
     initialsAvatar: createInitialsAvatarStyle(options),
@@ -214,6 +217,7 @@ export default function createStyleSet(options) {
     videoContent: createVideoContentStyle(options),
     vimeoContent: createVimeoContentStyle(options),
     warningNotification: createWarningNotificationStyle(options),
+    warningNotificationIcon: createWarningNotificationIconStyle(options),
     youTubeContent: createYouTubeContentStyle(options)
   };
 }

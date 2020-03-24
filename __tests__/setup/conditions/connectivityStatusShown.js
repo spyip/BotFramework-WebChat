@@ -8,7 +8,7 @@ export default function connectivityStatusShown(message) {
 
   return new Condition(conditionMessage, async driver => {
     const targetMessage = await driver.executeScript(() =>
-      document.querySelector(`.webchat__connectivityStatus`).innerText.trim()
+      document.querySelector(`.webchat__connectivity-notification, .webchat__error-notification`).innerText.trim()
     );
 
     if (message instanceof RegExp) {

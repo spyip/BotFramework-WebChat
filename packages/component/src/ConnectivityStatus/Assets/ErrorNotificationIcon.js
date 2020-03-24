@@ -3,16 +3,23 @@ import PropTypes from 'prop-types';
 import React from 'react';
 
 import useDirection from '../../hooks/useDirection';
+import useStyleSet from '../hooks/useStyleSet';
 
 const ICON_SIZE_FACTOR = 16;
 
 const ErrorNotificationIcon = ({ className, size }) => {
   const [direction] = useDirection();
+  const [{ errorNotificationIcon: errorNotificationIconStyleSet }] = useStyleSet();
 
   return (
     <svg
       alt=""
-      className={classNames(className + '', direction === 'rtl' && 'webchat__error--rtl')}
+      className={classNames(
+        errorNotificationIconStyleSet + '',
+        'webchat__error-notification-icon',
+        { 'webchat__error--rtl': direction === 'rtl' },
+        className + ''
+      )}
       height={ICON_SIZE_FACTOR * size}
       viewBox="0 0 13.1 13.1"
       width={ICON_SIZE_FACTOR * size}
