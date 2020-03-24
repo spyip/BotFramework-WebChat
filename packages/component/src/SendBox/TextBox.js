@@ -130,44 +130,64 @@ const TextBox = ({ className }) => {
   );
 
   return (
-    <form
-      className={classNames(ROOT_CSS + '', sendBoxTextAreaStyleSet + '', sendBoxTextBoxStyleSet + '', className + '')}
-      onSubmit={handleSubmit}
-    >
-      {
+    sendBoxTextWrap ?
+    (
+      <form
+        className={classNames(
+          ROOT_CSS + '',
+          sendBoxTextAreaStyleSet + '',
+          'webchat__send-box-text-area',
+          className + ''
+        )}
+        onSubmit={handleSubmit}
+      >
         <TypeFocusSinkContext.Consumer>
           {({ sendFocusRef }) =>
-            !sendBoxTextWrap ? (
-              <input
+            <div className="webchat__send-box-text-area__layout">
+              <textarea
                 aria-label={sendBoxString}
+                className="webchat__send-box-text-area__text-area"
                 data-id="webchat-sendbox-input"
                 disabled={disabled}
                 onChange={handleChange}
+                onKeyPress={handleKeyPress}
                 placeholder={typeYourMessageString}
                 ref={sendFocusRef}
-                type="text"
+                rows="1"
                 value={textBoxValue}
               />
-            ) : (
-              <div>
-                <textarea
-                  aria-label={sendBoxString}
-                  data-id="webchat-sendbox-input"
-                  disabled={disabled}
-                  onChange={handleChange}
-                  onKeyPress={handleKeyPress}
-                  placeholder={typeYourMessageString}
-                  ref={sendFocusRef}
-                  rows="1"
-                  value={textBoxValue}
-                />
-                <div>{textBoxValue + '\n'}</div>
-              </div>
-            )
+              <div className="webchat__send-box-text-area__shadow">{textBoxValue + '\n'}</div>
+            </div>
           }
         </TypeFocusSinkContext.Consumer>
-      }
-    </form>
+      </form>
+    ) : (
+      <form
+        className={classNames(
+          ROOT_CSS + '',
+          sendBoxTextBoxStyleSet + '',
+          'webchat__send-box-text-box',
+          className + ''
+        )}
+        onSubmit={handleSubmit}
+      >
+        <TypeFocusSinkContext.Consumer>
+          {({ sendFocusRef }) =>
+            <input
+              aria-label={sendBoxString}
+              className="webchat__send-box-text-box__input"
+              data-id="webchat-sendbox-input"
+              disabled={disabled}
+              onChange={handleChange}
+              placeholder={typeYourMessageString}
+              ref={sendFocusRef}
+              type="text"
+              value={textBoxValue}
+            />
+          }
+        </TypeFocusSinkContext.Consumer>
+      </form>
+    )
   );
 };
 

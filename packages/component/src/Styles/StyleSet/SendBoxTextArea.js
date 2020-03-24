@@ -8,23 +8,25 @@ export default function createSendBoxTextAreaStyle({
   subtle
 }) {
   return {
-    alignItems: 'center',
-    fontFamily: primaryFont,
-    paddingBottom: paddingRegular,
-    paddingLeft: paddingRegular,
-    paddingRight: paddingRegular,
-    paddingTop: paddingRegular,
+    '&.webchat__send-box-text-area': {
+      alignItems: 'center',
+      fontFamily: primaryFont,
+      paddingBottom: paddingRegular,
+      paddingLeft: paddingRegular,
+      paddingRight: paddingRegular,
+      paddingTop: paddingRegular,
 
-    '& > div': {
-      color: sendBoxTextColor,
-      fontFamily: 'inherit',
-      fontSize: 'inherit',
-      height: '100%',
-      maxHeight: sendBoxMaxHeight,
-      position: 'relative',
-      width: 'inherit',
+      '& .webchat__send-box-text-area__layout': {
+        color: sendBoxTextColor,
+        fontFamily: 'inherit',
+        fontSize: 'inherit',
+        height: '100%',
+        maxHeight: sendBoxMaxHeight,
+        position: 'relative',
+        width: 'inherit'
+      },
 
-      '& > div': {
+      '& .webchat__send-box-text-area__shadow': {
         color: 'inherit',
         fontFamily: 'inherit',
         fontSize: 'inherit',
@@ -35,7 +37,7 @@ export default function createSendBoxTextAreaStyle({
         wordBreak: 'break-word'
       },
 
-      '& > textarea': {
+      '& .webchat__send-box-text-area__text-area': {
         backgroundColor: sendBoxBackground,
         border: 0,
         color: 'inherit',
