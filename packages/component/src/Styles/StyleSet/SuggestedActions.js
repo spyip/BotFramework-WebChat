@@ -2,17 +2,18 @@
 /* eslint no-magic-numbers: ["error", { "ignore": [2] }] */
 
 export default function createSuggestedActionsStyle({ paddingRegular, suggestedActionLayout }) {
-  if (suggestedActionLayout === 'stacked') {
-    return {
-      paddingBottom: paddingRegular / 2,
-      paddingLeft: paddingRegular / 2,
-      paddingRight: paddingRegular / 2,
-      paddingTop: paddingRegular / 2
-    };
-  }
+  const halfPaddingRegular = paddingRegular / 2;
 
   return {
-    paddingBottom: paddingRegular / 2,
-    paddingTop: paddingRegular / 2
+    '&.webchat__suggested-actions': {
+      '&.webchat__suggested-actions--stacked': {
+        padding: halfPaddingRegular
+      },
+
+      '&:not(.webchat__suggested-actions--stacked)': {
+        paddingBottom: halfPaddingRegular,
+        paddingTop: halfPaddingRegular
+      }
+    }
   };
 }

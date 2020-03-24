@@ -76,7 +76,12 @@ const SuggestedActions = ({ className, suggestedActions = [] }) => {
 
   if (suggestedActionLayout === 'stacked') {
     return (
-      <div aria-label=" " aria-live="polite" role="status">
+      <div
+        aria-label=" "
+        aria-live="polite"
+        className="webchat__suggested-actions webchat__suggested-actions--stacked"
+        role="status"
+      >
         <ScreenReaderText text={suggestedActionsContainerText} />
         <div className={classNames(suggestedActionsStyleSet + '', SUGGESTED_ACTION_STACKED_CSS + '', className + '')}>
           {children}
@@ -86,11 +91,19 @@ const SuggestedActions = ({ className, suggestedActions = [] }) => {
   }
 
   return (
-    <div aria-label=" " aria-live="polite" role="status">
+    <div
+      aria-label=" "
+      aria-live="polite"
+      className="webchat__suggested-actions"
+      role="status"
+    >
       <ScreenReaderText text={suggestedActionsContainerText} />
       <BasicFilm
         autoCenter={false}
-        className={classNames(suggestedActionsStyleSet + '', className + '')}
+        className={classNames(
+          suggestedActionsStyleSet + '',
+          className + ''
+        )}
         dir={direction}
         flipperBlurFocusOnClick={true}
         showDots={false}
