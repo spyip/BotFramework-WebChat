@@ -7,28 +7,30 @@ export default function createSendBoxTextBoxStyle({
   subtle
 }) {
   return {
-    alignItems: 'center',
-    fontFamily: primaryFont,
+    '&.webchat__send-box-text-box': {
+      alignItems: 'center',
+      fontFamily: primaryFont,
 
-    '& > input': {
-      backgroundColor: sendBoxBackground,
-      border: 0,
-      fontFamily: 'inherit',
-      fontSize: 'inherit',
-      height: '100%',
-      outline: 0,
-      padding: 0,
+      '& .webchat__send-box-text-box__input': {
+        backgroundColor: sendBoxBackground,
+        border: 0,
+        fontFamily: 'inherit',
+        fontSize: 'inherit',
+        height: '100%',
+        outline: 0,
+        padding: 0,
 
-      '&:not(:disabled)': {
-        color: sendBoxTextColor
-      },
+        '&:not(:disabled)': {
+          color: sendBoxTextColor
+        },
 
-      '&:disabled': {
-        color: sendBoxDisabledTextColor || subtle
-      },
+        '&:disabled': {
+          color: sendBoxDisabledTextColor || subtle
+        },
 
-      '&::placeholder': {
-        color: sendBoxPlaceholderColor || subtle
+        '&::placeholder': {
+          color: sendBoxPlaceholderColor || subtle
+        }
       }
     }
   };
