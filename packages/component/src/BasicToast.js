@@ -37,26 +37,31 @@ const BasicToast = ({ notification: { alt, id, level, message } }) => {
     <div
       aria-describedby={contentId}
       aria-label={localize('TOAST_TITLE_ALT')}
-      className={classNames(ROOT_CSS + '', toastStyleSet + '', {
-        'webchat__toast--error': level === 'error',
-        'webchat__toast--info': level === 'info',
-        'webchat__toast--success': level === 'success',
-        'webchat__toast--warn': level === 'warn'
-      })}
+      className={classNames(
+        ROOT_CSS + '',
+        toastStyleSet + '',
+        'webchat__toast',
+        {
+          'webchat__toast--error': level === 'error',
+          'webchat__toast--info': level === 'info',
+          'webchat__toast--success': level === 'success',
+          'webchat__toast--warn': level === 'warn'
+        })
+      }
       role="dialog"
     >
-      <div className="webchat__toast__iconBox">
+      <div className="webchat__toast__icon-box">
         <NotificationIcon className="webchat__toast__icon" level={level} />
       </div>
       {!!alt && <ScreenReaderText text={alt} />}
       <div aria-hidden={!!alt} className="webchat__toast__text" dangerouslySetInnerHTML={html} id={contentId} />
       <button
         aria-label={localize('TOAST_DISMISS_BUTTON')}
-        className="webchat__toast__dismissButton"
+        className="webchat__toast__dismiss-button"
         onClick={handleDismiss}
         type="button"
       >
-        <div aria-hidden={true} className="webchat__toast__dismissButtonFocus">
+        <div aria-hidden={true} className="webchat__toast__dismiss-button-focus">
           <DismissIcon />
         </div>
       </button>
