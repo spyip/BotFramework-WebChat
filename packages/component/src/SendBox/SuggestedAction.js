@@ -50,10 +50,18 @@ const SuggestedAction = ({ 'aria-hidden': ariaHidden, buttonText, displayText, i
   }, [displayText, focusSendBox, performCardAction, setSuggestedActions, text, type, value]);
 
   return (
-    <div aria-hidden={ariaHidden} className={classNames(suggestedActionStyleSet + '', SUGGESTED_ACTION_CSS + '')}>
-      <button disabled={disabled} onClick={handleClick} type="button">
-        {image && <img className={classNames(direction === 'rtl' && 'webchat__suggestedactions--rtl')} src={image} />}
-        <nobr>{buttonText}</nobr>
+    <div
+      aria-hidden={ariaHidden}
+      className={classNames(
+        suggestedActionStyleSet + '',
+        SUGGESTED_ACTION_CSS + '',
+        'webchat__suggested-action',
+        { 'webchat__suggested-action--rtl': direction === 'rtl' }
+      )}
+    >
+      <button className="webchat__suggested-action__button" disabled={disabled} onClick={handleClick} type="button">
+        {image && <img className="webchat__suggested-action__image" src={image} />}
+        <nobr className="webchat__suggested-action__text">{buttonText}</nobr>
       </button>
     </div>
   );
