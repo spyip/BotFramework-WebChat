@@ -1,3 +1,4 @@
+import classNames from 'classnames';
 import PropTypes from 'prop-types';
 import React, { useEffect } from 'react';
 
@@ -18,9 +19,12 @@ const ErrorBox = ({ children, error, message }) => {
   return (
     <React.Fragment>
       <ScreenReaderText text={localize('ACTIVITY_ERROR_BOX_TITLE')} />
-      <div className={errorBoxStyleSet}>
+      <div className={classNames(
+        errorBoxStyleSet + '',
+        'webchat__error-box'
+      )}>
         <div>{message}</div>
-        <div>{children}</div>
+        <pre className="webchat__error-box__body">{children}</pre>
       </div>
     </React.Fragment>
   );
