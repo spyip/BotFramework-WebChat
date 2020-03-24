@@ -1,8 +1,10 @@
 export default function createSendStatusStyle({ fontSizeSmall, primaryFont, subtle, timestampColor }) {
   return {
-    color: timestampColor || subtle,
-    fontFamily: primaryFont,
-    fontSize: fontSizeSmall,
-    paddingTop: 5
+    '&.webchat__send-status': {
+      color: timestampColor || subtle,
+      fontFamily: primaryFont,
+      fontSize: fontSizeSmall,
+      paddingTop: 5
+    }
   };
 }

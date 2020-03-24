@@ -20,7 +20,12 @@ const Timestamp = ({ activity: { timestamp }, 'aria-hidden': ariaHidden, classNa
     !!timestamp && (
       <span
         aria-hidden={ariaHidden}
-        className={classNames((timestampStyleSet || '') + '', (sendStatusStyleSet || '') + '', (className || '') + '')}
+        className={classNames(
+          (timestampStyleSet || '') + '',
+          (sendStatusStyleSet || '') + '',
+          'webchat__send-status',
+          (className || '') + ''
+        )}
       >
         {timestampFormat === 'relative' ? <RelativeTime value={timestamp} /> : <AbsoluteTime value={timestamp} />}
       </span>
