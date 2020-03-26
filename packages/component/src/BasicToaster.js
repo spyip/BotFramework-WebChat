@@ -99,7 +99,10 @@ const BasicToaster = () => {
       aria-labelledby={headerElementId}
       aria-live="polite"
       aria-relevant="additions text"
-      className={classNames(ROOT_CSS + '', toasterStyleSet + '', 'webchat__toaster', {
+      className={classNames(
+        ROOT_CSS + '',
+        toasterStyleSet + '',
+        'webchat__toaster', {
         'webchat__toaster--expandable': expandable,
         'webchat__toaster--expanded': expanded,
         'webchat__toaster--error': highestLevel === 'error',
@@ -118,21 +121,21 @@ const BasicToaster = () => {
           onClick={handleToggleExpand}
           type="button"
         >
-          <div aria-hidden={true} className="webchat__toaster__expandLevelIconBox">
-            <NotificationIcon className="webchat__toaster__expandLevelIcon" level={highestLevel} />
+          <div aria-hidden={true} className="webchat__toaster__expand-level-icon-box">
+            <NotificationIcon className="webchat__toaster__expand-level-icon" level={highestLevel} />
           </div>
-          <div className="webchat__toaster__expandText">
+          <div className="webchat__toaster__expand-text">
             {localizeWithPlural(TOAST_ACCORDION_IDS, sortedNotificationsWithChildren.length)}
           </div>
-          <div aria-hidden={true} className="webchat__toaster__expandIcon">
-            <div className="webchat__toaster__expandIconFocus">{expanded ? <CollapseIcon /> : <ExpandIcon />}</div>
+          <div aria-hidden={true} className="webchat__toaster__expand-icon">
+            <div className="webchat__toaster__expand-icon-focus">{expanded ? <CollapseIcon /> : <ExpandIcon />}</div>
           </div>
         </button>
       )}
       {(!expandable || expanded) && (
         <ul aria-labelledby={headerElementId} className="webchat__toaster__list" id={expandableElementId} role="region">
           {sortedNotificationsWithChildren.map(({ children, notification: { id } }) => (
-            <li className="webchat__toaster__listItem" key={id} role="none">
+            <li className="webchat__toaster__list-item" key={id} role="none">
               {children}
             </li>
           ))}
