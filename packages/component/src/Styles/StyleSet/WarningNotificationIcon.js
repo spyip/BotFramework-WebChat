@@ -10,7 +10,7 @@ export default function createWarningNotificationIconStyle({
         paddingRight: connectivityIconPadding
       },
 
-      '&.webchat__warning-notification--rtl': {
+      '& .webchat__warning-notification--rtl': {
         paddingLeft: connectivityIconPadding
       }
     }
