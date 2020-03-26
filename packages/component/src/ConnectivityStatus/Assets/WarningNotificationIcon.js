@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import React from 'react';
 
 import useDirection from '../../hooks/useDirection';
-import useStyleSet from '../hooks/useStyleSet';
+import useStyleSet from '../../hooks/useStyleSet';
 
 const ICON_SIZE_FACTOR = 16;
 

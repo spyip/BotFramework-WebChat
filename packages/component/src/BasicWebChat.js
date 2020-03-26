@@ -214,7 +214,7 @@ const BasicWebChat = ({
           className={classNames(
             ROOT_CSS + '',
             styleSet.root + '',
-            '.webchat__root',
+            'webchat__root',
             className + ''
           )}
           role="complementary"
