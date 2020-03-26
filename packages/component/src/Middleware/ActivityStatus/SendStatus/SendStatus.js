@@ -1,3 +1,4 @@
+import classNames from 'classnames';
 import { Constants } from 'botframework-webchat-core';
 import PropTypes from 'prop-types';
 import React, { useCallback } from 'react';
@@ -52,7 +53,10 @@ const SendStatus = ({ activity, sendState }) => {
   return (
     <React.Fragment>
       <ScreenReaderText text={label} />
-      <span aria-hidden={true} className={sendStatusStyleSet}>
+      <span aria-hidden={true} className={classNames(
+        sendStatusStyleSet + '',
+        'webchat__send-status'
+      )}>
         {sendState === SENDING ? (
           sendingText
         ) : sendState === SEND_FAILED ? (
