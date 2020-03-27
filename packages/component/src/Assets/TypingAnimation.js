@@ -21,7 +21,10 @@ const TypingAnimation = () => {
       <ScreenReaderText text={localize('TYPING_INDICATOR_ALT')} />
       <div
         aria-hidden={true}
-        className={classNames('webchat__typingIndicator', rtlScale + '', typingAnimationStyleSet + '')}
+        className={classNames(
+          typingAnimationStyleSet + '',
+          'webchat__typing-andicator',
+          rtlScale + '')}
       />
     </React.Fragment>
   );
