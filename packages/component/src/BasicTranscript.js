@@ -58,7 +58,7 @@ function useMemoize(fn) {
 }
 
 const BasicTranscript = ({ className }) => {
-  const [{ activities: activitiesStyleSet, activity: activityStyleSet }] = useStyleSet();
+  const [{ basicTranscript: basicTranscriptStyleSet }] = useStyleSet();
   const [{ hideScrollToEndButton }] = useStyleOptions();
   const [activities] = useActivities();
   const [direction] = useDirection();
@@ -111,21 +111,21 @@ const BasicTranscript = ({ className }) => {
   );
 
   return (
-    <div className={classNames(ROOT_CSS + '', className + '')} dir={direction} role="log">
+    <div className={classNames(ROOT_CSS + '', className + '', basicTranscriptStyleSet + '', 'webchat__basic-transcript')} dir={direction} role="log">
       <ScrollToBottomPanel className={PANEL_CSS + ''}>
         <div className={FILLER_CSS} />
         <ul
           aria-atomic="false"
           aria-live="polite"
           aria-relevant="additions text"
-          className={classNames(LIST_CSS + '', activitiesStyleSet + '')}
+          className={classNames(LIST_CSS + '', 'webchat__basic-transcript__activity-list')}
           role="list"
         >
           {activityElementsWithMetadata.map(({ activity, element, key, shouldSpeak }) => (
             <li
               // Because of differences in browser implementations, aria-label=" " is used to make the screen reader not repeat the same text multiple times in Chrome v75 and Edge 44
               aria-label=" "
-              className={activityStyleSet + ''}
+              className="webchat__basic-transcript__activity"
               key={key}
               role="listitem"
             >
