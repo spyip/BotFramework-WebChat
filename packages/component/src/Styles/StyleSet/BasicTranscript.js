@@ -1,4 +1,4 @@
-export default function createBasicTranscriptStyle() {
+export default function createBasicTranscriptStyle({ paddingRegular }) {
   return {
     '&.webchat__basic-transcript': {
       '& .webchat__basic-transcript__activities': {
