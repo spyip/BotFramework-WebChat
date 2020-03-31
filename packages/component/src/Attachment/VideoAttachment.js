@@ -7,15 +7,17 @@ import useStyleSet from '../hooks/useStyleSet';
 import VideoContent from './VideoContent';
 
 const ROOT_CSS = css({
-  display: 'flex',
-  flexDirection: 'column'
+  '&.webchat__video-attachment': {
+    display: 'flex',
+    flexDirection: 'column'
+  }
 });
 
 const VideoAttachment = ({ attachment }) => {
   const [{ videoAttachment: videoAttachmentStyleSet }] = useStyleSet();
 
   return (
-    <div className={classNames(videoAttachmentStyleSet + '', ROOT_CSS + '')}>
+    <div className={classNames(videoAttachmentStyleSet + '', ROOT_CSS + '', "webchat__video-attachment")}>
       <VideoContent alt={attachment.name} src={attachment.contentUrl} />
     </div>
   );
