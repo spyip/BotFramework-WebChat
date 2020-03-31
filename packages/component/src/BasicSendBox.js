@@ -50,7 +50,7 @@ function useSendBoxSpeechInterimsVisible() {
 
 const BasicSendBox = ({ className }) => {
   const [{ hideUploadButton }] = useStyleOptions();
-  const [{ sendBox: sendBoxStyleSet }] = useStyleSet();
+  const [{ basicSendBox: basicSendBoxStyleSet }] = useStyleSet();
   const [{ SpeechRecognition } = {}] = useWebSpeechPonyfill();
   const [direction] = useDirection();
   const [speechInterimsVisible] = useSendBoxSpeechInterimsVisible();
@@ -59,7 +59,7 @@ const BasicSendBox = ({ className }) => {
 
   return (
     <div
-      className={classNames(sendBoxStyleSet + '', ROOT_CSS + '', 'webchat__basic-send-box', className + '')}
+      className={classNames(basicSendBoxStyleSet + '', ROOT_CSS + '', 'webchat__basic-send-box', className + '')}
       dir={direction}
       role="form"
     >
