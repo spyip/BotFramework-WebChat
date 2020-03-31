@@ -11,14 +11,16 @@ import usePerformCardAction from '../hooks/usePerformCardAction';
 import useStyleSet from '../hooks/useStyleSet';
 import useSuggestedActions from '../hooks/useSuggestedActions';
 
-const SUGGESTED_ACTION_CSS = css({
-  display: 'flex',
-  flexDirection: 'column',
-  whiteSpace: 'initial',
-
-  '& > button': {
+const ROOT_CSS = css({
+  '&.webchat__suggested-action': {
     display: 'flex',
-    overflow: 'hidden'
+    flexDirection: 'column',
+    whiteSpace: 'initial',
+
+    '& .webchat__suggested-action__button': {
+      display: 'flex',
+      overflow: 'hidden'
+    }
   }
 });
 
@@ -53,8 +55,8 @@ const SuggestedAction = ({ 'aria-hidden': ariaHidden, buttonText, displayText, i
     <div
       aria-hidden={ariaHidden}
       className={classNames(
+        ROOT_CSS + '',
         suggestedActionStyleSet + '',
-        SUGGESTED_ACTION_CSS + '',
         'webchat__suggested-action',
         { 'webchat__suggested-action--rtl': direction === 'rtl' }
       )}
