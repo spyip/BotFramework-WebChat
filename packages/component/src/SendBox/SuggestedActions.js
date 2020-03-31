@@ -15,8 +15,10 @@ import useStyleOptions from '../hooks/useStyleOptions';
 import useStyleSet from '../hooks/useStyleSet';
 
 const SUGGESTED_ACTION_STACKED_CSS = css({
-  display: 'flex',
-  flexDirection: 'column'
+  '&.webchat__suggested-actions': {
+    display: 'flex',
+    flexDirection: 'column'
+  }
 });
 
 function suggestedActionText({ displayText, title, type, value }) {
