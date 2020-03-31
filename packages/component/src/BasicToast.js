@@ -48,8 +48,8 @@ const BasicToast = ({ notification: { alt, id, level, message } }) => {
           'webchat__basic-toast--info': level === 'info',
           'webchat__basic-toast--success': level === 'success',
           'webchat__basic-toast--warn': level === 'warn'
-        })
-      }
+        }
+      )}
       role="dialog"
     >
       <div className="webchat__basic-toast__icon-box">
