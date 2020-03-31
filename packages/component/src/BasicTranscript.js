@@ -15,22 +15,24 @@ import useStyleOptions from './hooks/useStyleOptions';
 import useStyleSet from './hooks/useStyleSet';
 
 const ROOT_CSS = css({
-  overflow: 'hidden',
-  position: 'relative'
-});
+  '&.webchat__basic-transcript': {
+    overflow: 'hidden',
+    position: 'relative',
 
-const PANEL_CSS = css({
-  display: 'flex',
-  flexDirection: 'column',
-  WebkitOverflowScrolling: 'touch'
-});
+    '& .webchat__basic-transcript__activities': {
+      listStyleType: 'none'
+    },
 
-const FILLER_CSS = css({
-  flex: 1
-});
+    '& .webchat__basic-transcript__filler': {
+      flex: 1
+    },
 
-const LIST_CSS = css({
-  listStyleType: 'none'
+    '& .webchat__basic-transcript__panel': {
+      display: 'flex',
+      flexDirection: 'column',
+      WebkitOverflowScrolling: 'touch'
+    }
+  }
 });
 
 function useMemoize(fn) {
@@ -58,7 +60,7 @@ function useMemoize(fn) {
 }
 
 const BasicTranscript = ({ className }) => {
-  const [{ activities: activitiesStyleSet, activity: activityStyleSet }] = useStyleSet();
+  const [{ basicTranscript: basicTranscriptStyleSet }] = useStyleSet();
   const [{ hideScrollToEndButton }] = useStyleOptions();
   const [activities] = useActivities();
   const [direction] = useDirection();
@@ -111,21 +113,21 @@ const BasicTranscript = ({ className }) => {
   );
 
   return (
-    <div className={classNames(ROOT_CSS + '', className + '')} dir={direction} role="log">
-      <ScrollToBottomPanel className={PANEL_CSS + ''}>
-        <div className={FILLER_CSS} />
+    <div className={classNames(ROOT_CSS + '', basicTranscriptStyleSet + '', 'webchat__basic-transcript', className + '')} dir={direction} role="log">
+      <ScrollToBottomPanel className="webchat__basic-transcript__panel">
+        <div className="webchat__basic-transcript__filler" />
         <ul
           aria-atomic="false"
           aria-live="polite"
           aria-relevant="additions text"
-          className={classNames(LIST_CSS + '', activitiesStyleSet + '')}
+          className="webchat__basic-transcript__activities"
           role="list"
         >
           {activityElementsWithMetadata.map(({ activity, element, key, shouldSpeak }) => (
             <li
               // Because of differences in browser implementations, aria-label=" " is used to make the screen reader not repeat the same text multiple times in Chrome v75 and Edge 44
               aria-label=" "
-              className={activityStyleSet + ''}
+              className="webchat__basic-transcript__activity"
               key={key}
               role="listitem"
             >
