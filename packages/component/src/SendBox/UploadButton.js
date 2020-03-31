@@ -12,16 +12,18 @@ import useSendFiles from '../hooks/useSendFiles';
 import useStyleSet from '../hooks/useStyleSet';
 
 const ROOT_CSS = css({
-  overflow: 'hidden',
-  position: 'relative',
+  '&.webchat__upload-button': {
+    overflow: 'hidden',
+    position: 'relative',
 
-  '& > input': {
-    height: 0,
-    width: 0,
-    opacity: 0,
-    position: 'absolute',
-    left: 0,
-    top: 0
+    '& .webchat__upload-button__file-input': {
+      height: 0,
+      width: 0,
+      opacity: 0,
+      position: 'absolute',
+      left: 0,
+      top: 0
+    }
   }
 });
 
