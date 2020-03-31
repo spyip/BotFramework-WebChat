@@ -29,7 +29,14 @@ const CarouselLayout = ({ activity, children, nextVisibleActivity }) => {
     <Composer dir={direction} numItems={React.Children.count(children)}>
       <FilmContext.Consumer>
         {({ scrollBarWidth }) => (
-          <div className={classNames(ROOT_CSS + '', carouselLayoutStyleSet + '', filmStyleSet.carousel + '', 'webchat__carousel-layout')}>
+          <div
+            className={classNames(
+              ROOT_CSS + '',
+              carouselLayoutStyleSet + '',
+              filmStyleSet.carousel + '',
+              'webchat__carousel-layout'
+            )}
+          >
             <CarouselFilmStrip activity={activity} nextVisibleActivity={nextVisibleActivity}>
               {children}
             </CarouselFilmStrip>

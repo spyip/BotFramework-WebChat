@@ -101,10 +101,7 @@ const BasicToaster = () => {
       aria-labelledby={headerElementId}
       aria-live="polite"
       aria-relevant="additions text"
-      className={classNames(
-        ROOT_CSS + '',
-        basicToasterStyleSet + '',
-        'webchat__basic-toaster', {
+      className={classNames(ROOT_CSS + '', basicToasterStyleSet + '', 'webchat__basic-toaster', {
         'webchat__basic-toaster--expandable': expandable,
         'webchat__basic-toaster--expanded': expanded,
         'webchat__basic-toaster--error': highestLevel === 'error',
@@ -130,12 +127,19 @@ const BasicToaster = () => {
             {localizeWithPlural(TOAST_ACCORDION_IDS, sortedNotificationsWithChildren.length)}
           </div>
           <div aria-hidden={true} className="webchat__basic-toaster__expand-icon">
-            <div className="webchat__basic-toaster__expand-icon-focus">{expanded ? <CollapseIcon /> : <ExpandIcon />}</div>
+            <div className="webchat__basic-toaster__expand-icon-focus">
+              {expanded ? <CollapseIcon /> : <ExpandIcon />}
+            </div>
           </div>
         </button>
       )}
       {(!expandable || expanded) && (
-        <ul aria-labelledby={headerElementId} className="webchat__basic-toaster__list" id={expandableElementId} role="region">
+        <ul
+          aria-labelledby={headerElementId}
+          className="webchat__basic-toaster__list"
+          id={expandableElementId}
+          role="region"
+        >
           {sortedNotificationsWithChildren.map(({ children, notification: { id } }) => (
             <li className="webchat__basic-toaster__list-item" key={id} role="none">
               {children}

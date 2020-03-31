@@ -17,11 +17,9 @@ const SendIcon = () => {
 
   return (
     <svg
-      className={classNames(
-        ROOT_CSS + '',
-        'webchat__send-button__icon',
-        { '.webchat__send-button__icon--rtl': direction === 'rtl' }
-      )}
+      className={classNames(ROOT_CSS + '', 'webchat__send-button__icon', {
+        '.webchat__send-button__icon--rtl': direction === 'rtl'
+      })}
       height={28}
       viewBox="0 0 45.7 33.8"
       width={28}

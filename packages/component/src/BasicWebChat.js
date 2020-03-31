@@ -213,12 +213,7 @@ const BasicWebChat = ({
     >
       {({ styleSet }) => (
         <TypeFocusSinkBox
-          className={classNames(
-            ROOT_CSS + '',
-            styleSet.basicWebChat + '',
-            'webchat__basic-web-chat',
-            className + ''
-          )}
+          className={classNames(ROOT_CSS + '', styleSet.basicWebChat + '', 'webchat__basic-web-chat', className + '')}
           role="complementary"
           sendFocusRef={sendBoxRef}
         >

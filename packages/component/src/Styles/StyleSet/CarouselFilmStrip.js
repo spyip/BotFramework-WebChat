@@ -52,7 +52,7 @@ export default function CarouselFilmStrip({ bubbleMaxWidth, bubbleMinWidth, padd
       '&:not(.webchat__carousel-filmstrip--rtl).webchat__carousel-filmstrip--indented-content': {
         '& .webchat__carousel-filmstrip__content': {
           marginLeft: paddingRegular
-        },
+        }
       },
 
       '&.webchat__carousel-filmstrip--rtl.webchat__carousel-filmstrip--indented-content': {

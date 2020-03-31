@@ -30,7 +30,10 @@ const TextContent = ({ contentType, text }) => {
     (text || '').split('\n').map((line, index) => (
       <React.Fragment key={index}>
         <ScreenReaderText text={remarkStripMarkdown(line.trim()).contents} />
-        <p aria-hidden={true} className={classNames(textContentStyleSet + '', 'webchat__text-content', 'webchat__text-content--plain')}>
+        <p
+          aria-hidden={true}
+          className={classNames(textContentStyleSet + '', 'webchat__text-content', 'webchat__text-content--plain')}
+        >
           {line.trim()}
         </p>
       </React.Fragment>

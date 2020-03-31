@@ -93,19 +93,11 @@ const SuggestedActions = ({ className, suggestedActions = [] }) => {
   }
 
   return (
-    <div
-      aria-label=" "
-      aria-live="polite"
-      className="webchat__suggested-actions"
-      role="status"
-    >
+    <div aria-label=" " aria-live="polite" className="webchat__suggested-actions" role="status">
       <ScreenReaderText text={suggestedActionsContainerText} />
       <BasicFilm
         autoCenter={false}
-        className={classNames(
-          suggestedActionsStyleSet + '',
-          className + ''
-        )}
+        className={classNames(suggestedActionsStyleSet + '', className + '')}
         dir={direction}
         flipperBlurFocusOnClick={true}
         showDots={false}

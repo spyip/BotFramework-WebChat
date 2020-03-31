@@ -53,7 +53,7 @@ const ROOT_CSS = css({
     },
 
     '& .webchat__stacked-layout--from-user': {
-      flexDirection: 'row-reverse',
+      flexDirection: 'row-reverse'
     },
 
     '& .webchat__stacked-layout__row': {
@@ -121,22 +121,17 @@ const StackedLayout = ({ activity, children, nextVisibleActivity }) => {
 
   return (
     <div
-      className={classNames(
-        ROOT_CSS + '',
-        stackedLayoutStyleSet + '',
-        'webchat__stacked-layout',
-        {
-          'webchat__stacked-layout--rtl': !ltr,
-          'webchat__stacked-layout--from-user': fromUser,
-          'webchat__stacked-layout--extra-left-indent':
-            (ltr && fromUser && !renderAvatar && bubbleNubSize) ||
-            (!ltr && !fromUser && !renderAvatar && bubbleFromUserNubSize),
-          'webchat__stacked-layout--extra-right-indent':
-            (ltr && !fromUser && !renderAvatar && bubbleFromUserNubSize) ||
-            (!ltr && fromUser && !renderAvatar && bubbleNubSize),
-          'webchat__stacked-layout--indented-content': renderAvatar && !indented
-        }
-      )}
+      className={classNames(ROOT_CSS + '', stackedLayoutStyleSet + '', 'webchat__stacked-layout', {
+        'webchat__stacked-layout--rtl': !ltr,
+        'webchat__stacked-layout--from-user': fromUser,
+        'webchat__stacked-layout--extra-left-indent':
+          (ltr && fromUser && !renderAvatar && bubbleNubSize) ||
+          (!ltr && !fromUser && !renderAvatar && bubbleFromUserNubSize),
+        'webchat__stacked-layout--extra-right-indent':
+          (ltr && !fromUser && !renderAvatar && bubbleFromUserNubSize) ||
+          (!ltr && fromUser && !renderAvatar && bubbleNubSize),
+        'webchat__stacked-layout--indented-content': renderAvatar && !indented
+      })}
     >
       {renderAvatar && <div className="webchat__stacked-layout__avatar">{renderAvatar()}</div>}
       <div className="webchat__stacked-layout__content">
@@ -159,19 +154,25 @@ const StackedLayout = ({ activity, children, nextVisibleActivity }) => {
           // Because of differences in browser implementations, aria-label=" " is used to make the screen reader not repeat the same text multiple times in Chrome v75 and Edge 44
           <div
             aria-label=" "
-            className={classNames(
-              'webchat__stacked-layout__row',
-              { 'webchat__stacked-layout__row--indented': indented }
-            )}
+            className={classNames('webchat__stacked-layout__row', {
+              'webchat__stacked-layout__row--indented': indented
+            })}
             key={index}
           >
             <ScreenReaderText text={roleLabel} />
-            <Bubble className="webchat__stacked-layout__bubble webchat__stacked-layout__bubble--attachment" fromUser={fromUser} key={index} nub={false}>
+            <Bubble
+              className="webchat__stacked-layout__bubble webchat__stacked-layout__bubble--attachment"
+              fromUser={fromUser}
+              key={index}
+              nub={false}
+            >
               {children({ attachment })}
             </Bubble>
           </div>
         ))}
-        <div className={classNames('webchat__stacked-layout__row', { 'webchat__stacked-layout__row--indented': indented })}>
+        <div
+          className={classNames('webchat__stacked-layout__row', { 'webchat__stacked-layout__row--indented': indented })}
+        >
           {renderActivityStatus()}
           <div className="webchat__stacked-layout__row-filler" />
         </div>

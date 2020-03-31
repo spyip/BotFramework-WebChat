@@ -113,7 +113,11 @@ const BasicTranscript = ({ className }) => {
   );
 
   return (
-    <div className={classNames(ROOT_CSS + '', basicTranscriptStyleSet + '', 'webchat__basic-transcript', className + '')} dir={direction} role="log">
+    <div
+      className={classNames(ROOT_CSS + '', basicTranscriptStyleSet + '', 'webchat__basic-transcript', className + '')}
+      dir={direction}
+      role="log"
+    >
       <ScrollToBottomPanel className="webchat__basic-transcript__panel">
         <div className="webchat__basic-transcript__filler" />
         <ul

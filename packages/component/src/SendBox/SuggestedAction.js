@@ -54,12 +54,9 @@ const SuggestedAction = ({ 'aria-hidden': ariaHidden, buttonText, displayText, i
   return (
     <div
       aria-hidden={ariaHidden}
-      className={classNames(
-        ROOT_CSS + '',
-        suggestedActionStyleSet + '',
-        'webchat__suggested-action',
-        { 'webchat__suggested-action--rtl': direction === 'rtl' }
-      )}
+      className={classNames(ROOT_CSS + '', suggestedActionStyleSet + '', 'webchat__suggested-action', {
+        'webchat__suggested-action--rtl': direction === 'rtl'
+      })}
     >
       <button className="webchat__suggested-action__button" disabled={disabled} onClick={handleClick} type="button">
         {image && <img className="webchat__suggested-action__image" src={image} />}

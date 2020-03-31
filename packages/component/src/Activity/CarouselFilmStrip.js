@@ -125,7 +125,7 @@ const WebChatCarouselFilmStrip = ({
           'webchat__carousel-filmstrip--extra-right-indent': !userInitials && bubbleFromUserNubSize,
           'webchat__carousel-filmstrip--rtl': direction === 'rtl'
         },
-        className + '',
+        className + ''
       )}
       ref={scrollableRef}
     >
@@ -146,17 +146,10 @@ const WebChatCarouselFilmStrip = ({
             <div className="webchat__carousel-filmstrip__filler" />
           </div>
         )}
-        <ul
-          className="webchat__carousel-filmstrip__list"
-          ref={itemContainerRef}
-        >
+        <ul className="webchat__carousel-filmstrip__list" ref={itemContainerRef}>
           {attachments.map((attachment, index) => (
             // Because of differences in browser implementations, aria-label=" " is used to make the screen reader not repeat the same text multiple times in Chrome v75 and Edge 44
-            <li
-              aria-label=" "
-              className="webchat__carousel-filmstrip__list-item"
-              key={index}
-            >
+            <li aria-label=" " className="webchat__carousel-filmstrip__list-item" key={index}>
               <ScreenReaderText text={roleLabel} />
               <Bubble fromUser={fromUser} key={index} nub={false}>
                 {children({ attachment })}
@@ -164,9 +157,7 @@ const WebChatCarouselFilmStrip = ({
             </li>
           ))}
         </ul>
-        <div className="webchat__carousel-filmstrip__activity-status">
-          {renderActivityStatus()}
-        </div>
+        <div className="webchat__carousel-filmstrip__activity-status">{renderActivityStatus()}</div>
       </div>
     </div>
   );

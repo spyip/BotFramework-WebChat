@@ -1,7 +1,4 @@
-export default function createWarningNotificationIconStyle({
-  connectivityIconPadding,
-  slowConnectivity
-}) {
+export default function createWarningNotificationIconStyle({ connectivityIconPadding, slowConnectivity }) {
   return {
     '&.webchat__warning-notification-icon': {
       fill: slowConnectivity,

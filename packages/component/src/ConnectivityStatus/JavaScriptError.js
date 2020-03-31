@@ -19,10 +19,7 @@ const ConnectivityStatusJavaScriptError = () => {
       <ScreenReaderText text={localize('CONNECTIVITY_STATUS_ALT', renderErrorNotificationText)} />
       <div
         aria-hidden={true}
-        className={classNames(
-          errorNotificationStyleSet + '',
-          'webchat__error-notification'
-        )}
+        className={classNames(errorNotificationStyleSet + '', 'webchat__error-notification')}
         dir={direction}
       >
         <ErrorNotificationIcon />

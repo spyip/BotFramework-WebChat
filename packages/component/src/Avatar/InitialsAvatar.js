@@ -25,14 +25,13 @@ const InitialsAvatar = ({ fromUser }) => {
 
   return (
     <div
-      className={classNames(
-        ROOT_CSS + '',
-        initialsAvatarStyleSet + '',
-        'webchat__initials-avatar',
-        { 'webchat__initials-avatar--from-user': fromUser }
-      )}
+      className={classNames(ROOT_CSS + '', initialsAvatarStyleSet + '', 'webchat__initials-avatar', {
+        'webchat__initials-avatar--from-user': fromUser
+      })}
     >
-      <div className="webchat__initials-avatar__initials">{fromUser ? avatarInitialsForUser : avatarInitialsForBot}</div>
+      <div className="webchat__initials-avatar__initials">
+        {fromUser ? avatarInitialsForUser : avatarInitialsForBot}
+      </div>
     </div>
   );
 };

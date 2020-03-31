@@ -1,7 +1,4 @@
-export default function createErrorNotificationIconStyle({
-  connectivityIconPadding,
-  failedConnectivity
-}) {
+export default function createErrorNotificationIconStyle({ connectivityIconPadding, failedConnectivity }) {
   return {
     '&.webchat__error-notification-icon': {
       fill: failedConnectivity,
@@ -15,4 +12,4 @@ export default function createErrorNotificationIconStyle({
       }
     }
   };
-};
+}

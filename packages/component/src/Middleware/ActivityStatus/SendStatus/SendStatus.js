@@ -53,10 +53,7 @@ const SendStatus = ({ activity, sendState }) => {
   return (
     <React.Fragment>
       <ScreenReaderText text={label} />
-      <span aria-hidden={true} className={classNames(
-        sendStatusStyleSet + '',
-        'webchat__send-status'
-      )}>
+      <span aria-hidden={true} className={classNames(sendStatusStyleSet + '', 'webchat__send-status')}>
         {sendState === SENDING ? (
           sendingText
         ) : sendState === SEND_FAILED ? (

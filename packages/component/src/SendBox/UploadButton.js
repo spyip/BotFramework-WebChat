@@ -122,7 +122,13 @@ const UploadButton = () => {
         tabIndex={-1}
         type="file"
       />
-      <SendBoxButton alt={uploadFileString} aria-label={uploadFileString} className="webchat__upload-button__button" disabled={disabled} onClick={handleClick}>
+      <SendBoxButton
+        alt={uploadFileString}
+        aria-label={uploadFileString}
+        className="webchat__upload-button__button"
+        disabled={disabled}
+        onClick={handleClick}
+      >
         <AttachmentIcon />
       </SendBoxButton>
     </div>

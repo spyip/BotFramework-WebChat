@@ -39,17 +39,12 @@ const BasicToast = ({ notification: { alt, id, level, message } }) => {
     <div
       aria-describedby={contentId}
       aria-label={localize('TOAST_TITLE_ALT')}
-      className={classNames(
-        ROOT_CSS + '',
-        basicToastStyleSet + '',
-        'webchat__basic-toast',
-        {
-          'webchat__basic-toast--error': level === 'error',
-          'webchat__basic-toast--info': level === 'info',
-          'webchat__basic-toast--success': level === 'success',
-          'webchat__basic-toast--warn': level === 'warn'
-        }
-      )}
+      className={classNames(ROOT_CSS + '', basicToastStyleSet + '', 'webchat__basic-toast', {
+        'webchat__basic-toast--error': level === 'error',
+        'webchat__basic-toast--info': level === 'info',
+        'webchat__basic-toast--success': level === 'success',
+        'webchat__basic-toast--warn': level === 'warn'
+      })}
       role="dialog"
     >
       <div className="webchat__basic-toast__icon-box">

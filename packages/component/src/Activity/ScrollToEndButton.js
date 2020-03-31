@@ -49,12 +49,9 @@ const ScrollToEndButton = ({ animating, className, sticky }) => {
 
   return (
     <button
-      className={classNames(
-        'webchat__scroll-to-end-button',
-        scrollToEndButtonStyleSet + '',
-        className + '',
-        { 'webchat__scroll-to-end-button--rtl': direction === 'rtl' }
-      )}
+      className={classNames('webchat__scroll-to-end-button', scrollToEndButtonStyleSet + '', className + '', {
+        'webchat__scroll-to-end-button--rtl': direction === 'rtl'
+      })}
       onClick={handleClick}
       type="button"
     >

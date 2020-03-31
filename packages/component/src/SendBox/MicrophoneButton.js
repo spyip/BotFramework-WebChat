@@ -176,7 +176,12 @@ const MicrophoneButton = ({ className }) => {
       >
         <MicrophoneIcon />
       </SendBoxButton>
-      <div aria-live="polite" className="webchat__microphone-button__sr-only" id="webchatSendBoxMicrophoneButton" role="status">
+      <div
+        aria-live="polite"
+        className="webchat__microphone-button__sr-only"
+        id="webchatSendBoxMicrophoneButton"
+        role="status"
+      >
         {localize(dictating ? 'SPEECH_INPUT_MICROPHONE_BUTTON_OPEN_ALT' : 'SPEECH_INPUT_MICROPHONE_BUTTON_CLOSE_ALT')}
       </div>
     </div>

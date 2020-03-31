@@ -51,7 +51,7 @@ export default function createBubbleStyle({
           borderWidth: bubbleBorderWidth,
           color: bubbleTextColor,
           minHeight: bubbleMinHeight - bubbleBorderWidth * 2
-        },
+        }
       },
 
       '&.webchat__bubble--from-user': {
@@ -130,7 +130,7 @@ export default function createBubbleStyle({
             // Hide border radius if there is a nub on the top/bottom left corner
             ...(userNubUpSideDown ? { borderBottomLeftRadius: userNubCornerRadius } : {}),
             ...(!userNubUpSideDown ? { borderTopLeftRadius: userNubCornerRadius } : {})
-          },
+          }
         }
       },
 

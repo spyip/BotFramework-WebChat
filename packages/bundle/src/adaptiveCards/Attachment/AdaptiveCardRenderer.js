@@ -211,7 +211,11 @@ const AdaptiveCardRenderer = ({ adaptiveCard, tapAction }) => {
       <pre>{JSON.stringify(error, null, 2)}</pre>
     </ErrorBox>
   ) : (
-    <div className={classNames(adaptiveCardRendererStyleSet + '', 'webchat__adaptive-card-renderer')} onClick={handleClick} ref={contentRef} />
+    <div
+      className={classNames(adaptiveCardRendererStyleSet + '', 'webchat__adaptive-card-renderer')}
+      onClick={handleClick}
+      ref={contentRef}
+    />
   );
 };
 
