@@ -11,12 +11,14 @@ import useLocalizer from '../hooks/useLocalizer';
 import useStyleSet from '../hooks/useStyleSet';
 
 const ROOT_CSS = css({
-  overflow: 'hidden',
-  position: 'relative'
+  '&.webchat__carousel-layout': {
+    overflow: 'hidden',
+    position: 'relative'
+  }
 });
 
 const CarouselLayout = ({ activity, children, nextVisibleActivity }) => {
-  const [{ carouselFlipper: carouselFlipperStyleSet }] = useStyleSet();
+  const [{ carouselLayout: carouselLayoutStyleSet }] = useStyleSet();
   const [direction] = useDirection();
   const filmStyleSet = createBasicStyleSet({ cursor: null });
   const leftSideFlipper = direction === 'rtl' ? '>' : '<';
@@ -27,7 +29,7 @@ const CarouselLayout = ({ activity, children, nextVisibleActivity }) => {
     <Composer dir={direction} numItems={React.Children.count(children)}>
       <FilmContext.Consumer>
         {({ scrollBarWidth }) => (
-          <div className={classNames(ROOT_CSS + '', filmStyleSet.carousel + '')}>
+          <div className={classNames(ROOT_CSS + '', carouselLayoutStyleSet + '', filmStyleSet.carousel + '', 'webchat__carousel-layout')}>
             <CarouselFilmStrip activity={activity} nextVisibleActivity={nextVisibleActivity}>
               {children}
             </CarouselFilmStrip>
@@ -36,18 +38,18 @@ const CarouselLayout = ({ activity, children, nextVisibleActivity }) => {
                 <Flipper
                   aria-label={localize('CAROUSEL_FLIPPER_LEFT_ALT')}
                   blurFocusOnClick={true}
-                  className={classNames(carouselFlipperStyleSet + '', filmStyleSet.leftFlipper + '')}
+                  className={classNames(filmStyleSet.leftFlipper + '', 'webchat__carousel-layout__flipper')}
                   mode="left"
                 >
-                  <div className="button">{leftSideFlipper}</div>
+                  <div className="webchat__carousel-layout__flipper-button">{leftSideFlipper}</div>
                 </Flipper>
                 <Flipper
                   aria-label={localize('CAROUSEL_FLIPPER_RIGHT_ALT')}
                   blurFocusOnClick={true}
-                  className={classNames(carouselFlipperStyleSet + '', filmStyleSet.rightFlipper + '')}
+                  className={classNames(filmStyleSet.rightFlipper + '', 'webchat__carousel-layout__flipper')}
                   mode="right"
                 >
-                  <div className="button">{rightSideFlipper}</div>
+                  <div className="webchat__carousel-layout__flipper-button">{rightSideFlipper}</div>
                 </Flipper>
               </React.Fragment>
             )}
