@@ -18,22 +18,22 @@ export default function createToasterStyle({
   toastWarnColor
 }) {
   return {
-    '&.webchat__toaster': {
+    '&.webchat__basic-toaster': {
       overflowY: 'hidden',
 
-      '&:not(.webchat__toaster--expandable)': {
+      '&:not(.webchat__basic-toaster--expandable)': {
         maxHeight: toasterSingularMaxHeight
       },
 
-      '&.webchat__toaster--expandable:not(.webchat__toaster--expanded), & .webchat__toaster__list': {
+      '&.webchat__basic-toaster--expandable:not(.webchat__basic-toaster--expanded), & .webchat__basic-toaster__list': {
         height: 0
       },
 
-      '&.webchat__toaster--expandable.webchat__toaster--expanded': {
+      '&.webchat__basic-toaster--expandable.webchat__basic-toaster--expanded': {
         maxHeight: toasterMaxHeight
       },
 
-      '& .webchat__toaster__header': {
+      '& .webchat__basic-toaster__header': {
         alignItems: 'center',
         alignSelf: 'stretch',
         appearance: 'none',
@@ -47,16 +47,16 @@ export default function createToasterStyle({
         padding: 0,
         textAlign: 'left',
 
-        '&:focus .webchat__toaster__expand-icon-focus': {
+        '&:focus .webchat__basic-toaster__expand-icon-focus': {
           borderColor: 'rgba(26, 10, 0, .7)'
         },
 
-        '&:hover .webchat__toaster__expand-iconfocus': {
+        '&:hover .webchat__basic-toaster__expand-iconfocus': {
           backgroundColor: 'rgba(0, 0, 0, .12)'
         }
       },
 
-      '& .webchat__toaster__expand-icon-focus': {
+      '& .webchat__basic-toaster__expand-icon-focus': {
         alignItems: 'center',
         borderColor: 'Transparent',
         borderStyle: 'solid',
@@ -68,83 +68,83 @@ export default function createToasterStyle({
         width: 22
       },
 
-      '&.webchat__toaster--error': {
+      '&.webchat__basic-toaster--error': {
         // TODO: Checks if pass A11y contrast ratio requirement
 
-        '&:not(.webchat__toaster--expandable), & .webchat__toaster__header': {
+        '&:not(.webchat__basic-toaster--expandable), & .webchat__basic-toaster__header': {
           backgroundColor: toastErrorBackgroundColor
         },
 
-        '& .webchat__toaster__header': {
+        '& .webchat__basic-toaster__header': {
           color: toastErrorColor,
           fill: toastErrorColor
         }
       },
 
-      '&.webchat__toaster--info': {
-        '&:not(.webchat__toaster--expandable), & .webchat__toaster__header': {
+      '&.webchat__basic-toaster--info': {
+        '&:not(.webchat__basic-toaster--expandable), & .webchat__basic-toaster__header': {
           backgroundColor: toastInfoBackgroundColor
         },
 
-        '& .webchat__toaster__header': {
+        '& .webchat__basic-toaster__header': {
           color: toastInfoColor,
           fill: toastInfoColor
         }
       },
 
-      '&.webchat__toaster--success': {
-        '&:not(.webchat__toaster--expandable), & .webchat__toaster__header': {
+      '&.webchat__basic-toaster--success': {
+        '&:not(.webchat__basic-toaster--expandable), & .webchat__basic-toaster__header': {
           backgroundColor: toastSuccessBackgroundColor
         },
 
-        '& .webchat__toaster__header': {
+        '& .webchat__basic-toaster__header': {
           color: toastSuccessColor,
           fill: toastSuccessColor
         }
       },
 
-      '&.webchat__toaster--warn': {
-        '&:not(.webchat__toaster--expandable), & .webchat__toaster__header': {
+      '&.webchat__basic-toaster--warn': {
+        '&:not(.webchat__basic-toaster--expandable), & .webchat__basic-toaster__header': {
           backgroundColor: toastWarnBackgroundColor
         },
 
-        '& .webchat__toaster__header': {
+        '& .webchat__basic-toaster__header': {
           color: toastWarnColor,
           fill: toastWarnColor
         }
       },
 
-      '& .webchat__toaster__expand-level-icon-box': {
+      '& .webchat__basic-toaster__expand-level-icon-box': {
         height: toasterHeight,
         width: toastIconWidth
       },
 
-      '& .webchat__toaster__expand-icon': {
+      '& .webchat__basic-toaster__expand-icon': {
         height: toasterHeight,
         width: toasterHeight
       },
 
-      '& .webchat__toaster__expand-text': {
+      '& .webchat__basic-toaster__expand-text': {
         padding: '6px 0'
       },
 
-      '& .webchat__toaster__expand-level-icon-box, & .webchat__toaster__expand-icon': {
+      '& .webchat__basic-toaster__expand-level-icon-box, & .webchat__basic-toaster__expand-icon': {
         alignItems: 'center',
         display: 'flex',
         justifyContent: 'center'
       },
 
-      '& .webchat__toaster__list': {
+      '& .webchat__basic-toaster__list': {
         margin: 0,
         overflowY: 'auto',
         padding: 0
       },
 
-      '& .webchat__toaster__list-item:first-child:last-child': {
+      '& .webchat__basic-toaster__list-item:first-child:last-child': {
         overflow: 'hidden'
       },
 
-      '& .webchat__toaster__list-item:not(:first-child), & .webchat__toaster__list-item:not(:last-child)': {
+      '& .webchat__basic-toaster__list-item:not(:first-child), & .webchat__basic-toaster__list-item:not(:last-child)': {
         borderBottomColor: toastSeparatorColor,
         borderBottomStyle: 'solid',
         borderBottomWidth: 1,

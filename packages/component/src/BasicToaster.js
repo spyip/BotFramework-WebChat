@@ -15,21 +15,23 @@ import useRenderToast from './hooks/useRenderToast';
 import useStyleSet from './hooks/useStyleSet';
 
 const ROOT_CSS = css({
-  display: 'flex',
-  flexDirection: 'column',
-
-  '& .webchat__toaster__header': {
+  '&.webchat__basic-toaster': {
     display: 'flex',
-    flexShrink: 0
-  },
+    flexDirection: 'column',
 
-  '& .webchat__toaster__expandText': {
-    flex: 1
-  },
+    '& .webchat__basic-toaster__header': {
+      display: 'flex',
+      flexShrink: 0
+    },
 
-  '& .webchat__toaster__list': {
-    display: 'block',
-    listStyleType: 'none'
+    '& .webchat__basic-toaster__expandText': {
+      flex: 1
+    },
+
+    '& .webchat__basic-toaster__list': {
+      display: 'block',
+      listStyleType: 'none'
+    }
   }
 });
 
@@ -65,12 +67,12 @@ const TOAST_ACCORDION_IDS = {
 };
 
 const BasicToaster = () => {
-  const [{ toaster: toasterStyleSet }] = useStyleSet();
+  const [{ basicToaster: basicToasterStyleSet }] = useStyleSet();
   const [debouncedNotifications] = useDebouncedNotifications();
   const [expanded, setExpanded] = useState(false);
   const localizeWithPlural = useLocalizer({ plural: true });
-  const expandableElementId = useMemo(() => `webchat__toaster__list__${randomId()}`, []);
-  const headerElementId = useMemo(() => `webchat__toaster__header__${randomId()}`, []);
+  const expandableElementId = useMemo(() => `webchat__basic-toaster__list__${randomId()}`, []);
+  const headerElementId = useMemo(() => `webchat__basic-toaster__header__${randomId()}`, []);
   const renderToast = useRenderToast();
 
   const handleToggleExpand = useCallback(() => setExpanded(!expanded), [expanded, setExpanded]);
@@ -101,14 +103,14 @@ const BasicToaster = () => {
       aria-relevant="additions text"
       className={classNames(
         ROOT_CSS + '',
-        toasterStyleSet + '',
-        'webchat__toaster', {
-        'webchat__toaster--expandable': expandable,
-        'webchat__toaster--expanded': expanded,
-        'webchat__toaster--error': highestLevel === 'error',
-        'webchat__toaster--info': highestLevel === 'info',
-        'webchat__toaster--success': highestLevel === 'success',
-        'webchat__toaster--warn': highestLevel === 'warn'
+        basicToasterStyleSet + '',
+        'webchat__basic-toaster', {
+        'webchat__basic-toaster--expandable': expandable,
+        'webchat__basic-toaster--expanded': expanded,
+        'webchat__basic-toaster--error': highestLevel === 'error',
+        'webchat__basic-toaster--info': highestLevel === 'info',
+        'webchat__basic-toaster--success': highestLevel === 'success',
+        'webchat__basic-toaster--warn': highestLevel === 'warn'
       })}
       role="log"
     >
@@ -116,26 +118,26 @@ const BasicToaster = () => {
         <button
           aria-controls={expandableElementId}
           aria-expanded={expanded}
-          className="webchat__toaster__header"
+          className="webchat__basic-toaster__header"
           id={headerElementId}
           onClick={handleToggleExpand}
           type="button"
         >
-          <div aria-hidden={true} className="webchat__toaster__expand-level-icon-box">
-            <NotificationIcon className="webchat__toaster__expand-level-icon" level={highestLevel} />
+          <div aria-hidden={true} className="webchat__basic-toaster__expand-level-icon-box">
+            <NotificationIcon className="webchat__basic-toaster__expand-level-icon" level={highestLevel} />
           </div>
-          <div className="webchat__toaster__expand-text">
+          <div className="webchat__basic-toaster__expand-text">
             {localizeWithPlural(TOAST_ACCORDION_IDS, sortedNotificationsWithChildren.length)}
           </div>
-          <div aria-hidden={true} className="webchat__toaster__expand-icon">
-            <div className="webchat__toaster__expand-icon-focus">{expanded ? <CollapseIcon /> : <ExpandIcon />}</div>
+          <div aria-hidden={true} className="webchat__basic-toaster__expand-icon">
+            <div className="webchat__basic-toaster__expand-icon-focus">{expanded ? <CollapseIcon /> : <ExpandIcon />}</div>
           </div>
         </button>
       )}
       {(!expandable || expanded) && (
-        <ul aria-labelledby={headerElementId} className="webchat__toaster__list" id={expandableElementId} role="region">
+        <ul aria-labelledby={headerElementId} className="webchat__basic-toaster__list" id={expandableElementId} role="region">
           {sortedNotificationsWithChildren.map(({ children, notification: { id } }) => (
-            <li className="webchat__toaster__list-item" key={id} role="none">
+            <li className="webchat__basic-toaster__list-item" key={id} role="none">
               {children}
             </li>
           ))}
