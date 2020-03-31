@@ -16,15 +16,17 @@ import useLocalizer from './hooks/useLocalizer';
 import useStyleSet from './hooks/useStyleSet';
 
 const ROOT_CSS = css({
-  display: 'flex',
+  '&.webchat__basic-toast': {
+    display: 'flex',
 
-  '& .webchat__toast__text': {
-    flex: 1
+    '& .webchat__basic-toast__text': {
+      flex: 1
+    }
   }
 });
 
 const BasicToast = ({ notification: { alt, id, level, message } }) => {
-  const [{ toast: toastStyleSet }] = useStyleSet();
+  const [{ basicToast: basicToastStyleSet }] = useStyleSet();
   const contentId = useMemo(() => `webchat__toast__${randomId()}`, []);
   const localize = useLocalizer();
   const dismissNotification = useDismissNotification();
@@ -39,29 +41,29 @@ const BasicToast = ({ notification: { alt, id, level, message } }) => {
       aria-label={localize('TOAST_TITLE_ALT')}
       className={classNames(
         ROOT_CSS + '',
-        toastStyleSet + '',
-        'webchat__toast',
+        basicToastStyleSet + '',
+        'webchat__basic-toast',
         {
-          'webchat__toast--error': level === 'error',
-          'webchat__toast--info': level === 'info',
-          'webchat__toast--success': level === 'success',
-          'webchat__toast--warn': level === 'warn'
+          'webchat__basic-toast--error': level === 'error',
+          'webchat__basic-toast--info': level === 'info',
+          'webchat__basic-toast--success': level === 'success',
+          'webchat__basic-toast--warn': level === 'warn'
         })
       }
       role="dialog"
     >
-      <div className="webchat__toast__icon-box">
-        <NotificationIcon className="webchat__toast__icon" level={level} />
+      <div className="webchat__basic-toast__icon-box">
+        <NotificationIcon className="webchat__basic-toast__icon" level={level} />
       </div>
       {!!alt && <ScreenReaderText text={alt} />}
-      <div aria-hidden={!!alt} className="webchat__toast__text" dangerouslySetInnerHTML={html} id={contentId} />
+      <div aria-hidden={!!alt} className="webchat__basic-toast__text" dangerouslySetInnerHTML={html} id={contentId} />
       <button
         aria-label={localize('TOAST_DISMISS_BUTTON')}
-        className="webchat__toast__dismiss-button"
+        className="webchat__basic-toast__dismiss-button"
         onClick={handleDismiss}
         type="button"
       >
-        <div aria-hidden={true} className="webchat__toast__dismiss-button-focus">
+        <div aria-hidden={true} className="webchat__basic-toast__dismiss-button-focus">
           <DismissIcon />
         </div>
       </button>
