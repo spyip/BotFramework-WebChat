@@ -17,7 +17,7 @@ const ErrorNotificationIcon = ({ className, size }) => {
       className={classNames(
         errorNotificationIconStyleSet + '',
         'webchat__error-notification-icon',
-        { 'webchat__error--rtl': direction === 'rtl' },
+        { 'webchat__error-notification-icon--rtl': direction === 'rtl' },
         className + ''
       )}
       height={ICON_SIZE_FACTOR * size}
