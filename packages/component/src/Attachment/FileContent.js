@@ -11,17 +11,19 @@ import useLocalizer from '../hooks/useLocalizer';
 import useStyleSet from '../hooks/useStyleSet';
 
 const ROOT_CSS = css({
-  display: 'flex',
-
-  '& .webchat__file-content__button-link': {
+  '&.webchat__file-content': {
     display: 'flex',
-    flex: 1
-  },
 
-  '& .webchat__file-content__badge': {
-    display: 'flex',
-    flex: 1,
-    flexDirection: 'column'
+    '& .webchat__file-content__button-link': {
+      display: 'flex',
+      flex: 1
+    },
+
+    '& .webchat__file-content__badge': {
+      display: 'flex',
+      flex: 1,
+      flexDirection: 'column'
+    }
   }
 });
 
