@@ -21,7 +21,7 @@ const ConnectivityStatusFailedToConnect = () => {
         aria-hidden={true}
         className={classNames(
           errorNotificationStyleSet + '',
-          'webchat__connectivityStatus',
+          'webchat__connectivity-status',
           'webchat__error-notification'
         )}
         dir={direction}
