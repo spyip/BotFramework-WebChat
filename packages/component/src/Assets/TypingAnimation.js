@@ -23,7 +23,7 @@ const TypingAnimation = () => {
         aria-hidden={true}
         className={classNames(
           typingAnimationStyleSet + '',
-          'webchat__typing-andicator',
+          'webchat__typing-animation',
           rtlScale + '')}
       />
     </React.Fragment>
