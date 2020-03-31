@@ -23,8 +23,10 @@ import TypeFocusSinkBox from './Utils/TypeFocusSink';
 import useTrackException from './hooks/useTrackException';
 
 const ROOT_CSS = css({
-  display: 'flex',
-  flexDirection: 'column'
+  '&.webchat__basic-web-chat': {
+    display: 'flex',
+    flexDirection: 'column'
+  }
 });
 
 const CONNECTIVITY_STATUS_CSS = css({
@@ -213,8 +215,8 @@ const BasicWebChat = ({
         <TypeFocusSinkBox
           className={classNames(
             ROOT_CSS + '',
-            styleSet.root + '',
-            'webchat__root',
+            styleSet.basicWebChat + '',
+            'webchat__basic-web-chat',
             className + ''
           )}
           role="complementary"
