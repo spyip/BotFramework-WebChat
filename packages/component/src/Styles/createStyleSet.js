@@ -1,25 +1,26 @@
 /* eslint-disable complexity */
-import createActivitiesStyle from './StyleSet/Activities';
-import createActivityStyle from './StyleSet/Activity';
 import createAudioAttachmentStyle from './StyleSet/AudioAttachment';
 import createAudioContentStyle from './StyleSet/AudioContent';
 import createAvatarStyle from './StyleSet/Avatar';
+import createBasicSendBoxStyle from './StyleSet/BasicSendBox';
+import createBasicToasterStyle from './StyleSet/BasicToaster';
+import createBasicToastStyle from './StyleSet/BasicToast';
+import createBasicTranscriptStyle from './StyleSet/BasicTranscript';
+import createBasicWebChatStyle from './StyleSet/BasicWebChat';
 import createBubbleStyle from './StyleSet/Bubble';
 import createCarouselFilmStrip from './StyleSet/CarouselFilmStrip';
 import createCarouselLayout from './StyleSet/CarouselLayout';
 import createConnectivityNotification from './StyleSet/ConnectivityNotification';
 import createDictationInterimsStyle from './StyleSet/DictationInterims';
 import createErrorBoxStyle from './StyleSet/ErrorBox';
-import createErrorNotificationStyle from './StyleSet/ErrorNotification';
 import createErrorNotificationIconStyle from './StyleSet/ErrorNotificationIcon';
+import createErrorNotificationStyle from './StyleSet/ErrorNotification';
 import createFileContentStyle from './StyleSet/FileContent';
 import createImageAvatarStyle from './StyleSet/ImageAvatar';
 import createInitialsAvatarStyle from './StyleSet/InitialsAvatar';
 import createMicrophoneButtonStyle from './StyleSet/MicrophoneButton';
-import createRootStyle from './StyleSet/Root';
 import createScrollToEndButtonStyle from './StyleSet/ScrollToEndButton';
 import createSendBoxButtonStyle from './StyleSet/SendBoxButton';
-import createSendBoxStyle from './StyleSet/SendBox';
 import createSendBoxTextAreaStyle from './StyleSet/SendBoxTextArea';
 import createSendBoxTextBoxStyle from './StyleSet/SendBoxTextBox';
 import createSendStatusStyle from './StyleSet/SendStatus';
@@ -29,16 +30,14 @@ import createSuggestedActionsStyle from './StyleSet/SuggestedActions';
 import createSuggestedActionsStyleSet from './StyleSet/SuggestedActionsStyleSet';
 import createSuggestedActionStyle from './StyleSet/SuggestedAction';
 import createTextContentStyle from './StyleSet/TextContent';
-import createToasterStyle from './StyleSet/Toaster';
-import createToastStyle from './StyleSet/Toast';
 import createTypingAnimationStyle from './StyleSet/TypingAnimation';
 import createTypingIndicatorStyle from './StyleSet/TypingIndicator';
 import createUploadButtonStyle from './StyleSet/UploadButton';
 import createVideoAttachmentStyle from './StyleSet/VideoAttachment';
 import createVideoContentStyle from './StyleSet/VideoContent';
 import createVimeoContentStyle from './StyleSet/VimeoContent';
-import createWarningNotificationStyle from './StyleSet/WarningNotification';
 import createWarningNotificationIconStyle from './StyleSet/WarningNotificationIcon';
+import createWarningNotificationStyle from './StyleSet/WarningNotification';
 import createYouTubeContentStyle from './StyleSet/YouTubeContent';
 
 import defaultStyleOptions from './defaultStyleOptions';
@@ -173,11 +172,14 @@ export default function createStyleSet(options) {
   }
 
   return {
-    activities: createActivitiesStyle(options),
-    activity: createActivityStyle(options),
     audioAttachment: createAudioAttachmentStyle(options),
     audioContent: createAudioContentStyle(options),
     avatar: createAvatarStyle(options),
+    basicSendBox: createBasicSendBoxStyle(options),
+    basicToast: createBasicToastStyle(options),
+    basicToaster: createBasicToasterStyle(options),
+    basicTranscript: createBasicTranscriptStyle(options),
+    basicWebChat: createBasicWebChatStyle(options),
     bubble: createBubbleStyle(options),
     carouselFilmStrip: createCarouselFilmStrip(options),
     carouselLayout: createCarouselLayout(options),
@@ -194,9 +196,7 @@ export default function createStyleSet(options) {
       ...options,
       suggestedActionsStyleSet: createSuggestedActionsStyleSet(options)
     },
-    root: createRootStyle(options),
     scrollToEndButton: createScrollToEndButtonStyle(options),
-    sendBox: createSendBoxStyle(options),
     sendBoxButton: createSendBoxButtonStyle(options),
     sendBoxTextArea: createSendBoxTextAreaStyle(options),
     sendBoxTextBox: createSendBoxTextBoxStyle(options),
@@ -206,8 +206,6 @@ export default function createStyleSet(options) {
     suggestedAction: createSuggestedActionStyle(options),
     suggestedActions: createSuggestedActionsStyle(options),
     textContent: createTextContentStyle(options),
-    toast: createToastStyle(options),
-    toaster: createToasterStyle(options),
     typingAnimation: createTypingAnimationStyle(options),
     typingIndicator: createTypingIndicatorStyle(options),
     uploadButton: createUploadButtonStyle(options),
