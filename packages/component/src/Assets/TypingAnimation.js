@@ -7,14 +7,18 @@ import useDirection from '../hooks/useDirection';
 import useLocalizer from '../hooks/useLocalizer';
 import useStyleSet from '../hooks/useStyleSet';
 
-const RTL_SCALE_CSS = css({ transform: 'scale(-1, 1)' });
+const ROOT_CSS = css({
+  '&.webchat__typing-animation': {
+    '&.webchat__typing-animation--rtl': {
+      transform: 'scale(-1, 1)'
+    }
+  }
+});
 
 const TypingAnimation = () => {
   const [{ typingAnimation: typingAnimationStyleSet }] = useStyleSet();
   const [direction] = useDirection();
   const localize = useLocalizer();
-
-  const rtlScale = direction === 'rtl' ? RTL_SCALE_CSS + '' : '';
 
   return (
     <React.Fragment>
@@ -22,9 +26,11 @@ const TypingAnimation = () => {
       <div
         aria-hidden={true}
         className={classNames(
+          ROOT_CSS + '',
           typingAnimationStyleSet + '',
           'webchat__typing-animation',
-          rtlScale + '')}
+          { 'webchat__typing-animation--rtl': direction === 'rtl' }
+        )}
       />
     </React.Fragment>
   );
