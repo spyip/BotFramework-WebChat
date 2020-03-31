@@ -1,5 +1,4 @@
 import { css } from 'glamor';
-import classNames from 'classnames';
 import PropTypes from 'prop-types';
 import React from 'react';
 import * as browser from '../lib/Utils/detectBrowser';
@@ -25,7 +24,7 @@ const ScreenReaderText = ({ text }) => {
 
   return (
     // Because of differences in browser implementations, <span aria-label> is used to make the screen reader perform the same on different browsers. This workaround was made to accommodate Chrome
-    <span aria-label={ariaLabel} className={classNames(ROOT_CSS + '')}>
+    <span aria-label={ariaLabel} className={ROOT_CSS}>
       {text}
     </span>
   );

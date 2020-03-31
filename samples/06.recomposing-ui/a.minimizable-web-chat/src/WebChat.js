@@ -19,9 +19,9 @@ const WebChat = ({ className, onFetchToken, store, token }) => {
   }, [onFetchToken]);
 
   return token ? (
-    <ReactWebChat className={`${className || ''} web-chat`} directLine={directLine} store={store} styleSet={styleSet} />
+    <ReactWebChat className={`${className} web-chat`} directLine={directLine} store={store} styleSet={styleSet} />
   ) : (
-    <div className={`${className || ''} connect-spinner`}>
+    <div className={`${className} connect-spinner`}>
       <div className="content">
         <div className="icon">
           <span className="ms-Icon ms-Icon--Robot" />
@@ -30,6 +30,10 @@ const WebChat = ({ className, onFetchToken, store, token }) => {
       </div>
     </div>
   );
+};
+
+WebChat.defaultProps = {
+  className: ''
 };
 
 export default WebChat;

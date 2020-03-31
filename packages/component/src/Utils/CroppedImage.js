@@ -4,16 +4,18 @@ import PropTypes from 'prop-types';
 import React, { useMemo } from 'react';
 
 const ROOT_CSS = css({
-  overflow: 'hidden',
-  position: 'relative',
+  '&.webchat__cropped-image': {
+    overflow: 'hidden',
+    position: 'relative',
 
-  '& > img': {
-    height: 'auto',
-    left: '50%',
-    position: 'absolute',
-    top: '50%',
-    transform: 'translate(-50%, -50%)',
-    width: '100%'
+    '& .webchat__cropped-image__image': {
+      height: 'auto',
+      left: '50%',
+      position: 'absolute',
+      top: '50%',
+      transform: 'translate(-50%, -50%)',
+      width: '100%'
+    }
   }
 });
 
@@ -21,8 +23,8 @@ const CroppedImage = ({ alt, className, height, src, width }) => {
   const sizeStyle = useMemo(() => ({ height, width }), [height, width]);
 
   return (
-    <div className={classNames(ROOT_CSS + '', className + '')} style={sizeStyle}>
-      <img alt={alt} src={src} />
+    <div className={classNames(ROOT_CSS + '', 'webchat__cropped-image', className + '')} style={sizeStyle}>
+      <img alt={alt} className="webchat__cropped-image__image" src={src} />
     </div>
   );
 };

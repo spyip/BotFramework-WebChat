@@ -22,7 +22,7 @@ const ImageAvatar = ({ fromUser }) => {
   const [{ imageAvatar: imageAvatarStyleSet }] = useStyleSet();
 
   return (
-    <div className={classNames(imageAvatarStyleSet + '', ROOT_CSS + '', 'webchat__image-avatar')}>
+    <div className={classNames(ROOT_CSS + '', imageAvatarStyleSet + '', 'webchat__image-avatar')}>
       <CroppedImage
         alt=""
         className="webchat__image-avatar__image"

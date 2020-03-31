@@ -5,13 +5,13 @@ import React from 'react';
 import useStyleSet from '../hooks/useStyleSet';
 
 const HTMLVideoContent = ({ alt, autoPlay, loop, poster, src }) => {
-  const [{ videoContent: videoContentStyleSet }] = useStyleSet();
+  const [{ htmlVideoContent: htmlVideoContentStyleSet }] = useStyleSet();
 
   return (
     <video
       aria-label={alt}
       autoPlay={autoPlay}
-      className={classNames(videoContentStyleSet + '', 'webchat__html-audio-content')}
+      className={classNames(htmlVideoContentStyleSet + '', 'webchat__html-video-content')}
       controls={true}
       loop={loop}
       poster={poster}

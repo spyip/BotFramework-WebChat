@@ -85,7 +85,7 @@ const FileContent = ({ className, href, fileName, size }) => {
   return (
     <div
       aria-hidden={true}
-      className={classNames(fileContentStyleSet + '', ROOT_CSS + '', 'webchat__file-content', (className || '') + '')}
+      className={classNames(ROOT_CSS + '', fileContentStyleSet + '', 'webchat__file-content', className + '')}
     >
       <ScreenReaderText text={alt} />
       {href ? (

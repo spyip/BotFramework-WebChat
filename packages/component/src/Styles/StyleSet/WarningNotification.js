@@ -1,10 +1,8 @@
 export default function createWarningNotificationStyle({
-  connectivityIconPadding,
   connectivityMarginLeftRight,
   connectivityMarginTopBottom,
   connectivityTextSize,
   primaryFont,
-  slowConnectivity,
   notificationText
 }) {
   return {
@@ -19,17 +17,6 @@ export default function createWarningNotificationStyle({
       marginLeft: connectivityMarginLeftRight,
       marginRight: connectivityMarginLeftRight,
       marginTop: connectivityMarginTopBottom
-    },
-
-    '& > svg': {
-      fill: slowConnectivity,
-
-      ':not(webchat__warning--rtl)': {
-        paddingRight: connectivityIconPadding
-      },
-      '.webchat__warning--rtl': {
-        paddingLeft: connectivityIconPadding
-      }
     }
   };
 }

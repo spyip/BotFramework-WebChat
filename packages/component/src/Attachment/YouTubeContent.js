@@ -14,15 +14,13 @@ const YouTubeContent = ({ alt, autoPlay, embedID, loop }) => {
   }).toString();
 
   return (
-    <div className={classNames(youTubeContentStyleSet + '', 'webchat__youTube-content')}>
-      // TODO: We should encodeURI the URL
-      <iframe
-        allowFullScreen={true}
-        aria-label={alt}
-        className={youTubeContentStyleSet}
-        src={`https://youtube.com/embed/${embedID}?${search}`}
-      />
-    </div>
+    // TODO: We should encodeURI the URL
+    <iframe
+      allowFullScreen={true}
+      aria-label={alt}
+      className={classNames(youTubeContentStyleSet + '', 'webchat__youtube-content')}
+      src={`https://youtube.com/embed/${embedID}?${search}`}
+    />
   );
 };
 

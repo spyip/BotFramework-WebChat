@@ -99,21 +99,21 @@ constructor(props) {
   };
 }
 
-  render() {
-    const {
-      props: { className, store, token },
-      state: { styleSet }
-    } = this;
+render() {
+  const {
+    props: { className, store, token },
+    state: { styleSet }
+  } = this;
 
-    return (
-      <ReactWebChat
-        className={ `${ className || '' } web-chat` }
-        directLine={ this.createDirectLine(token) }
-        store={ store }
-        styleSet={ styleSet }
-      />
-    );
-  }
+  return (
+    <ReactWebChat
+      className={ `${ className } web-chat` }
+      directLine={ this.createDirectLine(token) }
+      store={ store }
+      styleSet={ styleSet }
+    />
+  );
+}
 ```
 
 Create the React method `componentDidMount` and invoke `onFetchToken` from props if the `token` has not been passed from the parent component.

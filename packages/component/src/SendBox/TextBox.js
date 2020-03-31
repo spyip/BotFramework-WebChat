@@ -15,11 +15,23 @@ import useStyleOptions from '../hooks/useStyleOptions';
 import useStyleSet from '../hooks/useStyleSet';
 import useSubmitSendBox from '../hooks/useSubmitSendBox';
 
-const ROOT_CSS = css({
-  display: 'flex',
+const TEXT_AREA_ROOT_CSS = css({
+  '&.webchat__send-box-text-area': {
+    display: 'flex',
 
-  '& > div, input': {
-    flex: 1
+    '& .webchat__send-box-text-area__layout': {
+      flex: 1
+    }
+  }
+});
+
+const TEXT_BOX_ROOT_CSS = css({
+  '&.webchat__send-box-text-box': {
+    display: 'flex',
+
+    '& .webchat__send-box-text-box__input': {
+      flex: 1
+    }
   }
 });
 
@@ -134,7 +146,7 @@ const TextBox = ({ className }) => {
     (
       <form
         className={classNames(
-          ROOT_CSS + '',
+          TEXT_AREA_ROOT_CSS + '',
           sendBoxTextAreaStyleSet + '',
           'webchat__send-box-text-area',
           className + ''
@@ -164,7 +176,7 @@ const TextBox = ({ className }) => {
     ) : (
       <form
         className={classNames(
-          ROOT_CSS + '',
+          TEXT_BOX_ROOT_CSS + '',
           sendBoxTextBoxStyleSet + '',
           'webchat__send-box-text-box',
           className + ''

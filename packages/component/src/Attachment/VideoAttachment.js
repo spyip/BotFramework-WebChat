@@ -17,7 +17,7 @@ const VideoAttachment = ({ attachment }) => {
   const [{ videoAttachment: videoAttachmentStyleSet }] = useStyleSet();
 
   return (
-    <div className={classNames(videoAttachmentStyleSet + '', ROOT_CSS + '', "webchat__video-attachment")}>
+    <div className={classNames(ROOT_CSS + '', videoAttachmentStyleSet + '', 'webchat__video-attachment')}>
       <VideoContent alt={attachment.name} src={attachment.contentUrl} />
     </div>
   );

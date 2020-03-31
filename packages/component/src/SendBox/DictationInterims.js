@@ -42,8 +42,8 @@ const DictationInterims = ({ className }) => {
 
   return dictateState === STARTING || dictateState === STOPPING ? (
     <p className={classNames(
-      dictationInterimsStyleSet + '',
       ROOT_CSS + '',
+      dictationInterimsStyleSet + '',
       'webchat__dictation-interims',
       className + ''
     )}>
@@ -53,8 +53,8 @@ const DictationInterims = ({ className }) => {
     dictateState === DICTATING &&
       (dictateInterims.length ? (
         <p className={classNames(
-          dictationInterimsStyleSet + '',
           ROOT_CSS + '',
+          dictationInterimsStyleSet + '',
           'webchat__dictation-interims',
           'webchat__dictation-interims--dictating',
           className + ''
@@ -68,8 +68,8 @@ const DictationInterims = ({ className }) => {
         </p>
       ) : (
         <p className={classNames(
-          dictationInterimsStyleSet + '',
           ROOT_CSS + '',
+          dictationInterimsStyleSet + '',
           className + ''
         )}>
           {localize('SPEECH_INPUT_LISTENING')}

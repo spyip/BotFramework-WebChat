@@ -29,7 +29,7 @@ const NotificationIcon = ({ className, level }) => {
 };
 
 NotificationIcon.defaultProps = {
-  className: undefined
+  className: ''
 };
 
 NotificationIcon.propTypes = {

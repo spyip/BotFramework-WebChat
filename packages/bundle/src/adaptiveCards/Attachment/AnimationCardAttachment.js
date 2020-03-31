@@ -1,6 +1,7 @@
 /* eslint react/no-array-index-key: "off" */
 
 import { Components, hooks } from 'botframework-webchat-component';
+import classNames from 'classnames';
 import PropTypes from 'prop-types';
 import React from 'react';
 
@@ -13,8 +14,8 @@ const AnimationCardAttachment = ({ attachment, attachment: { content: { media = 
   const [{ animationCardAttachment: animationCardAttachmentStyleSet }] = useStyleSet();
 
   return (
-    <div className={animationCardAttachmentStyleSet}>
-      <ul className="media-list">
+    <div className={classNames(animationCardAttachmentStyleSet + '', 'webchat__animation-card-attachment')}>
+      <ul className="webchat__animation-card-attachment__media-list">
         {media.map(({ profile = '', url }, index) => (
           // Because of differences in browser implementations, aria-label=" " is used to make the screen reader not repeat the same text multiple times in Chrome v75 and Edge 44
           <li aria-label=" " key={index}>

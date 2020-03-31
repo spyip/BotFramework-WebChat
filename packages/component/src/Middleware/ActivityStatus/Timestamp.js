@@ -24,7 +24,7 @@ const Timestamp = ({ activity: { timestamp }, 'aria-hidden': ariaHidden, classNa
           (timestampStyleSet || '') + '',
           (sendStatusStyleSet || '') + '',
           'webchat__send-status',
-          (className || '') + ''
+          className + ''
         )}
       >
         {timestampFormat === 'relative' ? <RelativeTime value={timestamp} /> : <AbsoluteTime value={timestamp} />}

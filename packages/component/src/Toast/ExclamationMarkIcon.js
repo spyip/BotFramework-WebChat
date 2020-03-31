@@ -4,7 +4,7 @@ import React from 'react';
 const ExclamationMarkIcon = ({ 'aria-label': ariaLabel, className }) => (
   <svg
     aria-label={ariaLabel}
-    className={(className || '') + ''}
+    className={className}
     height="19"
     viewBox="0 0 19 19"
     width="19"
@@ -16,7 +16,7 @@ const ExclamationMarkIcon = ({ 'aria-label': ariaLabel, className }) => (
 
 ExclamationMarkIcon.defaultProps = {
   'aria-label': undefined,
-  className: undefined
+  className: ''
 };
 
 ExclamationMarkIcon.propTypes = {

@@ -161,11 +161,11 @@ const MicrophoneButton = ({ className }) => {
     <div
       aria-controls="webchatSendBoxMicrophoneButton"
       className={classNames(
-        microphoneButtonStyleSet + '',
         ROOT_CSS + '',
+        microphoneButtonStyleSet + '',
         className + '',
         'webchat__microphone-button',
-        dictating && 'webchat__microphone-button--dictating'
+        { 'webchat__microphone-button--dictating': dictating }
       )}
     >
       <SendBoxButton

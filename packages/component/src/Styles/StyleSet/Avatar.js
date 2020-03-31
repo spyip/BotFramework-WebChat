@@ -1,6 +1,6 @@
-export default function createAvatarStyle({ avatarBorderRadius, avatarSize }) {
+export default function createBasicAvatarStyle({ avatarBorderRadius, avatarSize }) {
   return {
-    '&.webchat__defaultAvatar': {
+    '&.webchat__basic-avatar': {
       borderRadius: avatarBorderRadius,
       height: avatarSize,
       width: avatarSize

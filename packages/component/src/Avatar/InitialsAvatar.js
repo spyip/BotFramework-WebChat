@@ -8,11 +8,13 @@ import useAvatarForUser from '../hooks/useAvatarForUser';
 import useStyleSet from '../hooks/useStyleSet';
 
 const ROOT_CSS = css({
-  alignItems: 'center',
-  display: 'flex',
+  '&.webchat__initials-avatar': {
+    alignItems: 'center',
+    display: 'flex',
 
-  '& .webchat__initialsAvatar__initials': {
-    justifyContent: 'center'
+    '& .webchat__initialsAvatar__initials': {
+      justifyContent: 'center'
+    }
   }
 });
 
@@ -25,12 +27,12 @@ const InitialsAvatar = ({ fromUser }) => {
     <div
       className={classNames(
         ROOT_CSS + '',
-        'webchat__initialsAvatar',
-        fromUser && 'webchat__initialsAvatar--fromUser',
-        initialsAvatarStyleSet + ''
+        initialsAvatarStyleSet + '',
+        'webchat__initials-avatar',
+        { 'webchat__initials-avatar--from-user': fromUser }
       )}
     >
-      <div className="webchat__initialsAvatar__initials">{fromUser ? avatarInitialsForUser : avatarInitialsForBot}</div>
+      <div className="webchat__initials-avatar__initials">{fromUser ? avatarInitialsForUser : avatarInitialsForBot}</div>
     </div>
   );
 };

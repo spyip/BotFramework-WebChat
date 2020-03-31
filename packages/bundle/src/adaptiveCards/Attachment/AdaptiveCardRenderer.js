@@ -1,5 +1,6 @@
 /* eslint no-magic-numbers: ["error", { "ignore": [0, 2] }] */
 
+import classNames from 'classnames';
 import PropTypes from 'prop-types';
 import React, { useCallback, useLayoutEffect, useRef, useState } from 'react';
 
@@ -210,7 +211,7 @@ const AdaptiveCardRenderer = ({ adaptiveCard, tapAction }) => {
       <pre>{JSON.stringify(error, null, 2)}</pre>
     </ErrorBox>
   ) : (
-    <div className={adaptiveCardRendererStyleSet} onClick={handleClick} ref={contentRef} />
+    <div className={classNames(adaptiveCardRendererStyleSet + '', 'webchat__adaptive-card-renderer')} onClick={handleClick} ref={contentRef} />
   );
 };
 

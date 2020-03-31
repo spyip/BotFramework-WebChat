@@ -1,7 +1,7 @@
 /* eslint-disable complexity */
 import createAudioAttachmentStyle from './StyleSet/AudioAttachment';
 import createAudioContentStyle from './StyleSet/AudioContent';
-import createAvatarStyle from './StyleSet/Avatar';
+import createBasicAvatarStyle from './StyleSet/BasicAvatar';
 import createBasicSendBoxStyle from './StyleSet/BasicSendBox';
 import createBasicToasterStyle from './StyleSet/BasicToaster';
 import createBasicToastStyle from './StyleSet/BasicToast';
@@ -16,6 +16,7 @@ import createErrorBoxStyle from './StyleSet/ErrorBox';
 import createErrorNotificationIconStyle from './StyleSet/ErrorNotificationIcon';
 import createErrorNotificationStyle from './StyleSet/ErrorNotification';
 import createFileContentStyle from './StyleSet/FileContent';
+import createHTMLVideoContentStyle from './StyleSet/HTMLVideoContent';
 import createImageAvatarStyle from './StyleSet/ImageAvatar';
 import createInitialsAvatarStyle from './StyleSet/InitialsAvatar';
 import createMicrophoneButtonStyle from './StyleSet/MicrophoneButton';
@@ -34,7 +35,6 @@ import createTypingAnimationStyle from './StyleSet/TypingAnimation';
 import createTypingIndicatorStyle from './StyleSet/TypingIndicator';
 import createUploadButtonStyle from './StyleSet/UploadButton';
 import createVideoAttachmentStyle from './StyleSet/VideoAttachment';
-import createVideoContentStyle from './StyleSet/VideoContent';
 import createVimeoContentStyle from './StyleSet/VimeoContent';
 import createWarningNotificationIconStyle from './StyleSet/WarningNotificationIcon';
 import createWarningNotificationStyle from './StyleSet/WarningNotification';
@@ -75,6 +75,8 @@ export default function createStyleSet(options) {
     bubbleFromUserBorder,
     bubbleFromUserNubOffset,
     bubbleNubOffset,
+    spinnerAnimationPadding,
+    spinnerAnimationPaddingRight,
     suggestedActionBorder,
     suggestedActionDisabledBorder
   } = options;
@@ -141,7 +143,7 @@ export default function createStyleSet(options) {
 
   if (suggestedActionDisabledBorder) {
     console.warn(
-      'botframework-webcaht: "styleSet.suggestedActionDisabledBorder" is deprecated and will be removed on or after 2020-09-11. Please use "suggestedActionDisabledBorderColor", "suggestedActionDisabledBorderStyle", and, "suggestedActionDisabledBorderWidth".'
+      'botframework-webchat: "styleSet.suggestedActionDisabledBorder" is deprecated and will be removed on or after 2020-09-11. Please use "suggestedActionDisabledBorderColor", "suggestedActionDisabledBorderStyle", and, "suggestedActionDisabledBorderWidth".'
     );
 
     const { color, style, width } = parseBorder(suggestedActionDisabledBorder);
@@ -171,10 +173,17 @@ export default function createStyleSet(options) {
     options.bubbleNubOffset = -0;
   }
 
+  // Since defaultStyleOptions has a predefined value for spinnerAnimationPadding by default, the console.warn will appear if both it and spinnerAnimationPaddingRight are set
+  if (spinnerAnimationPadding && spinnerAnimationPaddingRight) {
+    console.warn(
+      'botframework-webchat: "spinnerAnimationPaddingRight" is deprecated and will be removed on or after 2021-02-01. Please use "spinnerAnimationPadding" instead.'
+    );
+  }
+
   return {
     audioAttachment: createAudioAttachmentStyle(options),
     audioContent: createAudioContentStyle(options),
-    avatar: createAvatarStyle(options),
+    basicAvatar: createBasicAvatarStyle(options),
     basicSendBox: createBasicSendBoxStyle(options),
     basicToast: createBasicToastStyle(options),
     basicToaster: createBasicToasterStyle(options),
@@ -189,6 +198,7 @@ export default function createStyleSet(options) {
     errorNotification: createErrorNotificationStyle(options),
     errorNotificationIcon: createErrorNotificationIconStyle(options),
     fileContent: createFileContentStyle(options),
+    htmlVideoContent: createHTMLVideoContentStyle(options),
     imageAvatar: createImageAvatarStyle(options),
     initialsAvatar: createInitialsAvatarStyle(options),
     microphoneButton: createMicrophoneButtonStyle(options),
@@ -210,7 +220,6 @@ export default function createStyleSet(options) {
     typingIndicator: createTypingIndicatorStyle(options),
     uploadButton: createUploadButtonStyle(options),
     videoAttachment: createVideoAttachmentStyle(options),
-    videoContent: createVideoContentStyle(options),
     vimeoContent: createVimeoContentStyle(options),
     warningNotification: createWarningNotificationStyle(options),
     warningNotificationIcon: createWarningNotificationIconStyle(options),

@@ -28,7 +28,7 @@ export default function createErrorBoxStyle({ monospaceFont, primaryFont }) {
         overflowY: 'auto',
         padding: 10,
 
-        '& .webchat__error-box_body': {
+        '& .webchat__error-box__body': {
           fontFamily: monospaceFont,
           fontSize: '60%',
           margin: 0

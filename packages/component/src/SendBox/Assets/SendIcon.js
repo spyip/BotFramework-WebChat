@@ -20,7 +20,7 @@ const SendIcon = () => {
       className={classNames(
         ROOT_CSS + '',
         'webchat__send-button__icon',
-        direction === 'rtl' && '.webchat__send-button__icon--rtl'
+        { '.webchat__send-button__icon--rtl': direction === 'rtl' }
       )}
       height={28}
       viewBox="0 0 45.7 33.8"

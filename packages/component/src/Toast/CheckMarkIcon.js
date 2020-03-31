@@ -4,7 +4,7 @@ import React from 'react';
 const CheckMarkIcon = ({ 'aria-label': ariaLabel, className }) => (
   <svg
     aria-label={ariaLabel}
-    className={(className || '') + ''}
+    className={className}
     fill="none"
     height="20"
     viewBox="0 0 20 20"
@@ -20,7 +20,7 @@ const CheckMarkIcon = ({ 'aria-label': ariaLabel, className }) => (
 
 CheckMarkIcon.defaultProps = {
   'aria-label': undefined,
-  className: undefined
+  className: ''
 };
 
 CheckMarkIcon.propTypes = {

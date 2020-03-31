@@ -59,7 +59,7 @@ const BasicSendBox = ({ className }) => {
 
   return (
     <div
-      className={classNames(basicSendBoxStyleSet + '', ROOT_CSS + '', 'webchat__basic-send-box', className + '')}
+      className={classNames(ROOT_CSS + '', basicSendBoxStyleSet + '', 'webchat__basic-send-box', className + '')}
       dir={direction}
       role="form"
     >

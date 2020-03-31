@@ -14,11 +14,11 @@ const VideoCardAttachment = ({
   attachment,
   attachment: { content: { media, autostart, autoloop, image: { url: imageURL } = {} } = {} } = {}
 }) => {
-  const [{ audioCardAttachment: audioCardAttachmentStyleSet }] = useStyleSet();
+  const [{ videoCardAttachment: videoCardAttachmentStyleSet }] = useStyleSet();
 
   return (
-    <div className={audioCardAttachmentStyleSet}>
-      <ul className="media-list">
+    <div className={classNames(videoCardAttachmentStyleSet + '', 'webchat__video-card-attachment')}>
+      <ul className="webchat__video-card-attachment__media-list">
         {media.map(({ url }, index) => (
           // Because of differences in browser implementations, aria-label=" " is used to make the screen reader not repeat the same text multiple times in Chrome v75 and Edge 44
           <li aria-label=" " key={index}>

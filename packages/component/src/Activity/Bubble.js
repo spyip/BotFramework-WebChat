@@ -100,7 +100,7 @@ const Bubble = ({ 'aria-hidden': ariaHidden, children, className, fromUser, nub 
           'webchat__bubble--has-nub': hasNub,
           'webchat__bubble--rtl': direction === 'rtl'
         },
-        (className || '') + ''
+        className + ''
       )}
     >
       <div className="webchat__bubble__content">{children}</div>
@@ -111,7 +111,7 @@ const Bubble = ({ 'aria-hidden': ariaHidden, children, className, fromUser, nub 
 
 Bubble.defaultProps = {
   'aria-hidden': false,
-  children: undefined,
+  children: '',
   className: '',
   fromUser: false,
   nub: true
