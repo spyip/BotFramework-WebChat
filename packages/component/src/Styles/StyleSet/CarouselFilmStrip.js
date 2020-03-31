@@ -21,44 +21,32 @@ export default function CarouselFilmStrip({ bubbleMaxWidth, bubbleMinWidth, padd
 
       // Element "content"
 
-      '&:not(.webchat__carousel-filmstrip--rtl)': {
-        '& .webchat__carousel-filmstrip__content': {
-          paddingRight: paddingRegular
-        }
+      '&:not(.webchat__carousel-filmstrip--rtl) .webchat__carousel-filmstrip__content': {
+        paddingRight: paddingRegular
       },
 
-      '&.webchat__carousel-filmstrip--rtl': {
-        '& .webchat__carousel-filmstrip__content': {
-          paddingLeft: paddingRegular
-        }
+      '&.webchat__carousel-filmstrip--rtl .webchat__carousel-filmstrip__content': {
+        paddingLeft: paddingRegular
       },
 
       // Element "list-item"
 
-      '&:not(.webchat__carousel-filmstrip--rtl)': {
-        '& .webchat__carousel-filmstrip__list-item:not(:last-child)': {
-          marginRight: paddingRegular
-        }
+      '&:not(.webchat__carousel-filmstrip--rtl) .webchat__carousel-filmstrip__list-item:not(:last-child)': {
+        marginRight: paddingRegular
       },
 
-      '&.webchat__carousel-filmstrip--rtl': {
-        '& .webchat__carousel-filmstrip__list-item:not(:last-child)': {
-          marginLeft: paddingRegular
-        }
+      '&.webchat__carousel-filmstrip--rtl .webchat__carousel-filmstrip__list-item:not(:last-child)': {
+        marginLeft: paddingRegular
       },
 
       // Modifier "indented-content" with element "content"
 
-      '&:not(.webchat__carousel-filmstrip--rtl).webchat__carousel-filmstrip--indented-content': {
-        '& .webchat__carousel-filmstrip__content': {
-          marginLeft: paddingRegular
-        }
+      '&:not(.webchat__carousel-filmstrip--rtl).webchat__carousel-filmstrip--indented-content .webchat__carousel-filmstrip__content': {
+        marginLeft: paddingRegular
       },
 
-      '&.webchat__carousel-filmstrip--rtl.webchat__carousel-filmstrip--indented-content': {
-        '& .webchat__carousel-filmstrip__content': {
-          marginRight: paddingRegular
-        }
+      '&.webchat__carousel-filmstrip--rtl.webchat__carousel-filmstrip--indented-content .webchat__carousel-filmstrip__content': {
+        marginRight: paddingRegular
       },
 
       // Modifier "item-indented" with element "activity-status" and "list"
@@ -77,17 +65,15 @@ export default function CarouselFilmStrip({ bubbleMaxWidth, bubbleMinWidth, padd
 
       // Modifier "extra-right-indent" with element "content"
 
-      '&:not(.webchat__carousel-filmstrip--rtl).webchat__carousel-filmstrip--extra-right-indent': {
-        '& .webchat__carousel-filmstrip__content': {
-          paddingRight: paddingRegular * 2
-        }
+      '&:not(.webchat__carousel-filmstrip--rtl).webchat__carousel-filmstrip--extra-right-indent .webchat__carousel-filmstrip__content': {
+        paddingRight: paddingRegular * 2
       },
 
-      '&.webchat__carousel-filmstrip--rtl.webchat__carousel-filmstrip--extra-right-indent': {
-        '& .webchat__carousel-filmstrip__content': {
-          paddingLeft: paddingRegular * 2
-        }
+      '&.webchat__carousel-filmstrip--rtl.webchat__carousel-filmstrip--extra-right-indent .webchat__carousel-filmstrip__content': {
+        paddingLeft: paddingRegular * 2
       },
+
+      // Other modifiers
 
       '& .webchat__carousel-filmstrip__list:not(:first-child)': {
         marginTop: paddingRegular

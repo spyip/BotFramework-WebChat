@@ -25,11 +25,19 @@ const ROOT_CSS = css({
   '&.webchat__stacked-layout': {
     display: 'flex',
 
-    '& .webchat__stacked-layout__avatar': {
+    '&.webchat__stacked-layout--from-user': {
+      flexDirection: 'row-reverse',
+
+      '& .webchat__stacked-layout__row': {
+        flexDirection: 'row-reverse'
+      }
+    },
+
+    '& .webchat__stacked-layout__avatar, & .webchat__stacked-layout__filler': {
       flexShrink: 0
     },
 
-    '& .webchat__stacked-layout__content': {
+    '& .webchat__stacked-layout__bubble, & .webchat__stacked-layout__content': {
       flexGrow: 1,
       overflow: 'hidden'
     },
@@ -38,26 +46,9 @@ const ROOT_CSS = css({
       display: 'flex'
     },
 
-    '& .webchat__stacked-layout__bubble': {
-      flexGrow: 1,
-      overflow: 'hidden'
-    },
-
     '& .webchat__stacked-layout__row-filler': {
       flexGrow: 10000,
       flexShrink: 1
-    },
-
-    '& .webchat__stacked-layout__filler': {
-      flexShrink: 0
-    },
-
-    '& .webchat__stacked-layout--from-user': {
-      flexDirection: 'row-reverse'
-    },
-
-    '& .webchat__stacked-layout__row': {
-      flexDirection: 'row-reverse'
     }
   }
 });
