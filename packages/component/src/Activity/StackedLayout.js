@@ -22,39 +22,41 @@ import useStyleOptions from '../hooks/useStyleOptions';
 import useStyleSet from '../hooks/useStyleSet';
 
 const ROOT_CSS = css({
-  display: 'flex',
+  '&.webchat__stacked-layout': {
+    display: 'flex',
 
-  '& > .webchat__stackedLayout__avatar': {
-    flexShrink: 0
-  },
+    '& .webchat__stacked-layout__avatar': {
+      flexShrink: 0
+    },
 
-  '& > .webchat__stackedLayout__content': {
-    flexGrow: 1,
-    overflow: 'hidden',
+    '& .webchat__stacked-layout__content': {
+      flexGrow: 1,
+      overflow: 'hidden'
+    },
 
-    '& > .webchat__row': {
-      display: 'flex',
+    '& .webchat__stacked-layout__row': {
+      display: 'flex'
+    },
 
-      '& > .bubble, & > .timestamp': {
-        flexGrow: 1,
-        overflow: 'hidden'
-      },
+    '& .webchat__stacked-layout__bubble': {
+      flexGrow: 1,
+      overflow: 'hidden'
+    },
 
-      '& > .filler': {
-        flexGrow: 10000,
-        flexShrink: 1
-      }
-    }
-  },
+    '& .webchat__stacked-layout__row-filler': {
+      flexGrow: 10000,
+      flexShrink: 1
+    },
 
-  '& > .filler': {
-    flexShrink: 0
-  },
+    '& .webchat__stacked-layout__filler': {
+      flexShrink: 0
+    },
 
-  '&.webchat__stackedLayout--fromUser': {
-    flexDirection: 'row-reverse',
+    '& .webchat__stacked-layout--from-user': {
+      flexDirection: 'row-reverse',
+    },
 
-    '& > .webchat__stackedLayout__content > .webchat__row': {
+    '& .webchat__stacked-layout__row': {
       flexDirection: 'row-reverse'
     }
   }
@@ -115,31 +117,33 @@ const StackedLayout = ({ activity, children, nextVisibleActivity }) => {
     formatDate(timestamp)
   ).trim();
 
+  const ltr = direction !== 'rtl';
+
   return (
     <div
       className={classNames(
         ROOT_CSS + '',
         stackedLayoutStyleSet + '',
-        direction === 'rtl' ? 'webchat__stackedLayout--rtl' : '',
+        'webchat__stacked-layout',
         {
-          'webchat__stackedLayout--fromUser': fromUser,
-          webchat__stacked_extra_left_indent:
-            (direction !== 'rtl' && fromUser && !renderAvatar && bubbleNubSize) ||
-            (direction === 'rtl' && !fromUser && !renderAvatar && bubbleFromUserNubSize),
-          webchat__stacked_extra_right_indent:
-            (direction !== 'rtl' && !fromUser && !renderAvatar && bubbleFromUserNubSize) ||
-            (direction === 'rtl' && fromUser && !renderAvatar && bubbleNubSize),
-          webchat__stacked_indented_content: renderAvatar && !indented,
-          'webchat__stackedLayout--hasAvatar': renderAvatar && !!(fromUser ? bubbleFromUserNubSize : bubbleNubSize)
+          'webchat__stacked-layout--rtl': !ltr,
+          'webchat__stacked-layout--from-user': fromUser,
+          'webchat__stacked-layout--extra-left-indent':
+            (ltr && fromUser && !renderAvatar && bubbleNubSize) ||
+            (!ltr && !fromUser && !renderAvatar && bubbleFromUserNubSize),
+          'webchat__stacked-layout--extra-right-indent':
+            (ltr && !fromUser && !renderAvatar && bubbleFromUserNubSize) ||
+            (!ltr && fromUser && !renderAvatar && bubbleNubSize),
+          'webchat__stacked-layout--indented-content': renderAvatar && !indented
         }
       )}
     >
-      {renderAvatar && <div className="webchat__stackedLayout__avatar">{renderAvatar()}</div>}
-      <div className="webchat__stackedLayout__content">
+      {renderAvatar && <div className="webchat__stacked-layout__avatar">{renderAvatar()}</div>}
+      <div className="webchat__stacked-layout__content">
         {!!activityDisplayText && (
-          <div className="webchat__row message">
+          <div className="webchat__stacked-layout__row webchat__stacked-layout__row--message">
             <ScreenReaderText text={ariaLabel} />
-            <Bubble aria-hidden={true} className="bubble" fromUser={fromUser} nub={!!indented}>
+            <Bubble aria-hidden={true} className="webchat__stacked-layout__bubble" fromUser={fromUser} nub={!!indented}>
               {children({
                 activity,
                 attachment: {
@@ -148,28 +152,31 @@ const StackedLayout = ({ activity, children, nextVisibleActivity }) => {
                 }
               })}
             </Bubble>
-            <div className="filler" />
+            <div className="webchat__stacked-layout__row-filler" />
           </div>
         )}
         {attachments.map((attachment, index) => (
           // Because of differences in browser implementations, aria-label=" " is used to make the screen reader not repeat the same text multiple times in Chrome v75 and Edge 44
           <div
             aria-label=" "
-            className={classNames('webchat__row attachment', { webchat__stacked_item_indented: indented })}
+            className={classNames(
+              'webchat__stacked-layout__row',
+              { 'webchat__stacked-layout__row--indented': indented }
+            )}
             key={index}
           >
             <ScreenReaderText text={roleLabel} />
-            <Bubble className="attachment bubble" fromUser={fromUser} key={index} nub={false}>
+            <Bubble className="webchat__stacked-layout__bubble webchat__stacked-layout__bubble--attachment" fromUser={fromUser} key={index} nub={false}>
               {children({ attachment })}
             </Bubble>
           </div>
         ))}
-        <div className={classNames('webchat__row', { webchat__stacked_item_indented: indented })}>
+        <div className={classNames('webchat__stacked-layout__row', { 'webchat__stacked-layout__row--indented': indented })}>
           {renderActivityStatus()}
-          <div className="filler" />
+          <div className="webchat__stacked-layout__row-filler" />
         </div>
       </div>
-      <div className="filler" />
+      <div className="webchat__stacked-layout__filler" />
     </div>
   );
 };
