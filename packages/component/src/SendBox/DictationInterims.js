@@ -18,8 +18,10 @@ const {
 } = Constants;
 
 const ROOT_CSS = css({
-  alignItems: 'center',
-  display: 'flex'
+  '&.webchat__dictation-interims': {
+    alignItems: 'center',
+    display: 'flex'
+  }
 });
 
 const connectDictationInterims = (...selectors) =>
