@@ -9,8 +9,10 @@ import useAvatarForUser from '../hooks/useAvatarForUser';
 import useStyleSet from '../hooks/useStyleSet';
 
 const ROOT_CSS = css({
-  '& .webchat__image-avatar__image': {
-    width: '100%'
+  '&.webchat__image-avatar': {
+    '& .webchat__image-avatar__image': {
+      width: '100%'
+    }
   }
 });
 
