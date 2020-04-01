@@ -11,28 +11,24 @@ export default function createErrorBoxStyle({ monospaceFont, primaryFont }) {
       overflowY: 'auto',
       WebkitOverflowScrolling: 'touch',
 
-      '& :first-child': {
+      '& .webchat__error-box__title': {
         backgroundColor: '#EF0000',
         color: 'White',
         padding: '5px 10px'
       },
 
-      '& :last-child': {
-        borderColor: '#EF0000',
-        borderStyle: 'dashed',
+      '& .webchat__error-box__body': {
         borderBottomWidth: 2,
+        borderColor: '#EF0000',
         borderLeftWidth: 2,
         borderRightWidth: 2,
+        borderStyle: 'dashed',
         borderTopWidth: 0,
+        fontFamily: monospaceFont,
+        fontSize: '60%',
         margin: 0,
         overflowY: 'auto',
-        padding: 10,
-
-        '& .webchat__error-box__body': {
-          fontFamily: monospaceFont,
-          fontSize: '60%',
-          margin: 0
-        }
+        padding: 10
       }
     }
   };

@@ -20,7 +20,7 @@ const ErrorBox = ({ children, error, message }) => {
     <React.Fragment>
       <ScreenReaderText text={localize('ACTIVITY_ERROR_BOX_TITLE')} />
       <div className={classNames(errorBoxStyleSet + '', 'webchat__error-box')}>
-        <div>{message}</div>
+        <div className="webchat__error-box__title">{message}</div>
         <pre className="webchat__error-box__body">{children}</pre>
       </div>
     </React.Fragment>
